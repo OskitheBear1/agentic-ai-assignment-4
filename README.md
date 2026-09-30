@@ -68,6 +68,18 @@ every answer can be checked against a line in a PDF I can read myself.
 | `raw/Data Mining Syllabus.pdf` | Descriptive and Predictive Data Mining, MBA 247 | 4 | [`wiki/Courses/Data Mining MBA 247.md`](vault/wiki/Courses/Data%20Mining%20MBA%20247.md) |
 | `raw/Negotiations Syllabus.pdf` | Negotiations and Conflict Resolution, MBA 252 | 5 | [`wiki/Courses/Negotiations MBA 252.md`](vault/wiki/Courses/Negotiations%20MBA%20252.md) |
 
+**A note on private information.** These four syllabi are course materials
+distributed to enrolled students, shared here with that in mind. The generated notes
+do **not** reproduce contact details: `wikigen.redact_contact_details` strips email
+addresses and phone numbers from every note body, in code rather than by asking the
+model nicely — it copied them anyway when it was merely instructed not to, and on one
+run mangled one into `olesky@haaas.bberkeley.edu`, a wrong address that looked real.
+The unchanged originals in `raw/` do still contain instructor emails, because the
+assignment requires originals to be preserved byte-for-byte and altering them would
+break both the sha256 provenance chain and the point of having originals. That is a
+deliberate trade, not an oversight. No student data, grades or personal records are
+in this repository.
+
 **How an original connects to its note.** Ingestion hashes the file's bytes into a
 short `source_id` and writes it into the note's front matter, alongside the original
 filename, the full sha256, and the page count:
