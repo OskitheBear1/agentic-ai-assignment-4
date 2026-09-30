@@ -1,0 +1,109 @@
+{
+  "mode": "ask",
+  "retrieval_scope_note": "question names only \"Negotiations\"; evidence limited to that course",
+  "execution": "local",
+  "model": "gemma3n:e4b",
+  "runtime": "ollama 0.34.4",
+  "embed_model": "embeddinggemma:300m",
+  "question": "When is the Negotiations final exam?",
+  "scope": "all",
+  "top_k": 6,
+  "retrieved": [
+    {
+      "label": "S1",
+      "source_path": "vault/raw/Negotiations Syllabus.pdf",
+      "page": 2,
+      "section": "Course Description",
+      "source_type": "raw",
+      "chunk_id": "0be2bed38d-002-003",
+      "why_retrieved": "keyword #1 (1.94) + vector #2 (0.496)",
+      "text": "[Course Description]\nyou'll practice the skills — communication, preparation, self-awareness — through weekly negotiation exercises.\nCourse Expectations & Ground Rules\nThis is an experiential, demanding course. You will negotiate almost every week, and your engagement directly affects your\npeers' learning, not just your own. A few ground rules keep the exercises useful and the room safe to experiment in:\n• Role instructions are confidential. Do not show or read them to other parties before or during a negotiation.\n• Experiment with different tactics freely, but nothing involving physical intimidation or harassment.\nGrading — 100 Points Total\nComponent When Points\nGlobal participation (attendance, punctuality, engagement, quality of\ndiscussion)\nWeekly 40\nPreparation (worksheets submitted before class) Weekly 20\nFeedback (to negotiation partners) Weekly 20\nIn-class quizzes Sometime! 2-3 20"
+    },
+    {
+      "label": "S2",
+      "source_path": "vault/raw/Negotiations Syllabus.pdf",
+      "page": 4,
+      "section": "(document start)",
+      "source_type": "raw",
+      "chunk_id": "0be2bed38d-004-010",
+      "why_retrieved": "keyword #5 (1.31) + vector #1 (0.526)",
+      "text": "[(document start)]\nWeekly Schedule\nWeek Date Topic & Case Readings Due\n1 8/26 Fundamentals: Yerba Mate Thompson Ch. 1, 3 Nothing! Come as you are\n2 9/2 Integrative Negotiation I: New\nBike\nThompson Ch. 2, 4 New Bike prep sheet\n3 9/9 Salary Negotiations: Salary\nNegotiation\nThompson p.370-378;\njob-offer readings\n(bCourses)\n-Salary prep sheet\n-Feedback to New Bike\npartner\n4 9/116 Integrative Negotiation II: The\nGrand Strand\nGetting Past No p.31-\n104; bCourses readings\n-Grand Strand prep sheet\n-Feedback to Salary partner\n5 9/23 Power in Negotiations: Myti-\nPet Food\nThompson p.102-124,\n240-250; Getting Past\nNo p.105-158\n-Myti-Pet prep sheet\n-Feedback to Grand Strand\n6 9/30 Real negotiation analysis,\ngroup processes, how to say no\n— -Prep for Challenger\ndiscussion\n-Feedback to Myti Pet\n7 10/7 Negotiation IRL (guest\nspeaker) + special fun activity\n—\n8 10/14 Hostage negotiators!!\nTrust: Bullard Houses"
+    },
+    {
+      "label": "S3",
+      "source_path": "vault/raw/Negotiations Syllabus.pdf",
+      "page": 4,
+      "section": "(document start)",
+      "source_type": "raw",
+      "chunk_id": "0be2bed38d-004-011",
+      "why_retrieved": "keyword #4 (1.52) + vector #4 (0.482)",
+      "text": "[(document start)]\ndiscussion\n-Feedback to Myti Pet\n7 10/7 Negotiation IRL (guest\nspeaker) + special fun activity\n—\n8 10/14 Hostage negotiators!!\nTrust: Bullard Houses\nThompson Ch. 6, p.351-\n360; deception readings\n(bCourses)\n-Bullard Houses prep sheet\n9 10/21  Shadow negotiations, social\ninfluence & coalitions:\nFastskin\nCh. 7, 12; persuasion\nreadings (bCourses)\n-Fastskin prep sheet\n-Feedback to Bullard\nHouse\n10 10/28 Cross-functional team\nnegotiation: Best Stuff on\nEarth\nCross-Functional Team\nNegotiations (bCourses)\n-Best Stuff on Earth prep\nsheet\n-Feedback to Fastskin\nFull reading citations and links are on bCourses. Shadow-negotiate window for Week 8: 10/10–10/17."
+    },
+    {
+      "label": "S4",
+      "source_path": "vault/wiki/Courses/Negotiations MBA 252.md",
+      "page": null,
+      "section": "Negotiations MBA 252",
+      "source_type": "wiki",
+      "chunk_id": "0a0434975a-000-001",
+      "why_retrieved": "keyword #3 (1.55) + vector #3 (0.488)",
+      "text": "[Negotiations MBA 252]\nNegotiations MBA 252\nThis course builds skills in negotiation for business and life, covering strategic frameworks and the psychology of negotiation through weekly exercises. Students will practice communication, preparation, and self-awareness.\nLogistics\n- Wednesdays from 8:00–11:00 AM or 2:00–5:00 PM in C220.\n- Dates: 8/26, 9/2, 9/9, 9/16, 9/23, 9/30, 10/7, 10/14, 10/21, 10/28.\n- First week focuses on fundamentals with reading from Thompson's 'The Mind and Heart of the Negotiator'.\n- Press team assignment due within the first 5 weeks, with up to 3 bonus points.\n- Pop quiz to test fundamental negotiation concepts."
+    },
+    {
+      "label": "S5",
+      "source_path": "vault/wiki/Courses/Negotiations MBA 252.md",
+      "page": null,
+      "section": "Attendance and Lateness",
+      "source_type": "wiki",
+      "chunk_id": "0a0434975a-000-003",
+      "why_retrieved": "keyword #7 (1.18) + vector #11 (0.423)",
+      "text": "[Attendance and Lateness]\n- First missed class is free if the professor is notified in advance.\n- Missing more than 30 minutes of class (late or early): -1 point.\n- Missing more than 30 minutes of class without notice: -2 points.\nAssignments and Deadlines\n- Preparation worksheets are due at the start of class; no late submissions.\n- Late assignments are penalized 1 point per day late.\n- Feedback to negotiation partners is due by Friday midnight each week via email.\n- Press team assignment involves filming and analyzing other students' negotiations.\n- Preparation worksheets are never accepted late."
+    },
+    {
+      "label": "S6",
+      "source_path": "vault/wiki/Courses/Negotiations MBA 252.md",
+      "page": null,
+      "section": "Readings and Materials",
+      "source_type": "wiki",
+      "chunk_id": "0a0434975a-000-004",
+      "why_retrieved": "keyword #8 (1.11) + vector #12 (0.420)",
+      "text": "[Readings and Materials]\n- Press team assignment involves filming and analyzing other students' negotiations.\n- Preparation worksheets are never accepted late.\nReadings and Materials\n- Recommended Reading (Appendix B heads this list \"Recommended Reading\"): Thompson, L. (2007). The Mind and Heart of the Negotiator, 5th ed. Prentice Hall.\n- Recommended Readings: Neale, M. & Lys, T. (2015). Getting (More Of) What You Want. Basic Books.\n- Recommended Readings: Ury, W. (1991). Getting Past No. Penguin.\n- Recommended Readings: Voss, C. & Raz, T. (2016). Never Split the Difference. Random House.\n- Recommended Readings: Malhotra, D. & Bazerman, M. (2008). Negotiation Genius. Bantam.\n- Full reading citations and links are on bCourses."
+    }
+  ],
+  "answer": "INSUFFICIENT EVIDENCE: the wiki does not contain the date of the final exam.\nClosest available: Dates: 8/26, 9/2, 9/9, 9/16, 9/23, 9/30, 10/7, 10/14, 10/21, 10/28 [S4].",
+  "citations": {
+    "cited": [
+      "S4"
+    ],
+    "unsupported": [],
+    "unused": [
+      "S1",
+      "S2",
+      "S3",
+      "S5",
+      "S6"
+    ],
+    "declared_insufficient": true,
+    "uncited_answer": false,
+    "contract_violations": [],
+    "spelling_flags": [],
+    "machine_check": "declared insufficient evidence (no citation required)",
+    "passes_machine_check": true
+  },
+  "timing_seconds": {
+    "retrieval": 0.053,
+    "generation": 9.765,
+    "total": 9.824
+  },
+  "tokens": {
+    "prompt": 2646,
+    "completion": 91
+  },
+  "model_options": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "num_ctx": 4096,
+    "num_predict": 400
+  },
+  "test_id": "mode-check-isolation-local"
+}

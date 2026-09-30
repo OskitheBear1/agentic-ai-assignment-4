@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.wiki_index/
+.DS_Store
+.agent-handoff.md
+
+# Obsidian per-machine UI state (pane layout, last file open) — not evidence.
+vault/.obsidian/workspace.json
+
+# Byte-identical duplicate of vault/raw/, which is the canonical location the
+# assignment requires. Kept locally, not shipped.
+sources/

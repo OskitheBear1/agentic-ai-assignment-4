@@ -1,0 +1,106 @@
+{
+  "mode": "ask",
+  "execution": "local",
+  "model": "gemma3n:e4b",
+  "runtime": "ollama 0.34.4",
+  "embed_model": "embeddinggemma:300m",
+  "question": "How many points is global participation worth in the Negotiations course?",
+  "scope": "all",
+  "top_k": 6,
+  "retrieved": [
+    {
+      "label": "S1",
+      "source_path": "vault/raw/Negotiations Syllabus.pdf",
+      "page": 2,
+      "section": "Course Description",
+      "source_type": "raw",
+      "chunk_id": "0be2bed38d-002-003",
+      "why_retrieved": "keyword #4 (7.75) + vector #1 (0.565)",
+      "text": "[Course Description]\nyou'll practice the skills — communication, preparation, self-awareness — through weekly negotiation exercises.\nCourse Expectations & Ground Rules\nThis is an experiential, demanding course. You will negotiate almost every week, and your engagement directly affects your\npeers' learning, not just your own. A few ground rules keep the exercises useful and the room safe to experiment in:\n• Role instructions are confidential. Do not show or read them to other parties before or during a negotiation.\n• Experiment with different tactics freely, but nothing involving physical intimidation or harassment.\nGrading — 100 Points Total\nComponent When Points\nGlobal participation (attendance, punctuality, engagement, quality of\ndiscussion)\nWeekly 40\nPreparation (worksheets submitted before class) Weekly 20\nFeedback (to negotiation partners) Weekly 20\nIn-class quizzes Sometime! 2-3 20"
+    },
+    {
+      "label": "S2",
+      "source_path": "vault/raw/Negotiations Syllabus.pdf",
+      "page": 2,
+      "section": "Course Description",
+      "source_type": "raw",
+      "chunk_id": "0be2bed38d-002-004",
+      "why_retrieved": "keyword #6 (6.60) + vector #2 (0.556)",
+      "text": "[Course Description]\nWeekly 40\nPreparation (worksheets submitted before class) Weekly 20\nFeedback (to negotiation partners) Weekly 20\nIn-class quizzes Sometime! 2-3 20\nPress team assignment Once in the first 5 weeks (up to 3 bonus)\nParticipation (40 points)\nParticipation means showing up, on time and prepared, and contributing to discussion. Your attendance record and the quality\nof your comments are both assessed — see the Policies section below for how absences and lateness affect this score.\nPreparation (20 points)\nSubmit the preparation worksheet for each negotiation exercise before class starts. Late preparation sheets are not accepted\n(see Late Assignment Policy); missing one costs 2 points.\nFeedback (20 points)\n• Give your negotiation partner at least one positive and one constructive comment immediately after each exercise."
+    },
+    {
+      "label": "S3",
+      "source_path": "vault/raw/Negotiations Syllabus.pdf",
+      "page": 2,
+      "section": "Course Description",
+      "source_type": "raw",
+      "chunk_id": "0be2bed38d-002-005",
+      "why_retrieved": "keyword #5 (7.67) + vector #3 (0.553)",
+      "text": "[Course Description]\nFeedback (20 points)\n• Give your negotiation partner at least one positive and one constructive comment immediately after each exercise.\n• Email written feedback to your partner by Friday midnight each week, cc'ing the class email with “[Feedback\nSubmission]” in the subject line.\n• Worth ~2 points per week, including Week 10.\nPop quiz (20 points)\n• Pop quiz in class to test your basic knowledge of fundamental negotiation concepts\nOptional: Press team assignment (up to 3 bonus points)\n• Make a video reel of the highlights of someone else's negotiation"
+    },
+    {
+      "label": "S4",
+      "source_path": "vault/wiki/Courses/Negotiations MBA 252.md",
+      "page": null,
+      "section": "Negotiations MBA 252",
+      "source_type": "wiki",
+      "chunk_id": "6bebd4a9dc-000-001",
+      "why_retrieved": "keyword #1 (11.59) + vector #5 (0.498)",
+      "text": "[Negotiations MBA 252]\nNegotiations MBA 252\nThis course builds skills in negotiation for business and life, covering strategic frameworks and the psychology of negotiation through weekly exercises. Students will practice communication, preparation, and self-awareness.\nLogistics\n- Wednesdays from 8:00–11:00 AM or 2:00–5:00 PM in C220.\n- Dates: 8/26, 9/2, 9/9, 9/16, 9/23, 9/30, 10/7, 10/14, 10/21, 10/28.\n- Instructor: Solène Delecourt.\n- GSI: Oranda Hou.\n- GSR: Irina Liu.\nGrading\n- Global participation: 40 points (attendance, punctuality, engagement, discussion quality).\n- Preparation: 20 points (preparation worksheets submitted before class; missing one costs 2 points).\n- Feedback: 20 points (at least one positive and one constructive comment to each negotiation partner via email by Friday midnight).\n- In-class quizzes: 20 points (some time during the term)."
+    },
+    {
+      "label": "S5",
+      "source_path": "vault/wiki/Courses/Negotiations MBA 252.md",
+      "page": null,
+      "section": "Grading",
+      "source_type": "wiki",
+      "chunk_id": "6bebd4a9dc-000-002",
+      "why_retrieved": "keyword #2 (8.40) + vector #4 (0.543)",
+      "text": "[Grading]\n- In-class quizzes: 20 points (some time during the term).\n- Press team assignment: 10 points (optional, up to 3 bonus points; video reel of another student's negotiation).\n- Preparation worksheets are not accepted late.\nAttendance and Lateness\n- Notify the professor by email at least 24 hours in advance for missed classes.\n- Missed a class with 24+ hours' notice: -2 points.\n- Missed a class without 24 hours' notice: -3 points.\n- First missed class is free if the professor is notified in advance.\n- Missing more than 30 minutes of class: -1 point (late) or -2 points (without notice).\n- Regular absence or lack of engagement in class will be reflected in the global participation score."
+    },
+    {
+      "label": "S6",
+      "source_path": "vault/raw/AgenticAISyllabus.pdf",
+      "page": 5,
+      "section": "(document start)",
+      "source_type": "raw",
+      "chunk_id": "4b5a9caae6-005-015",
+      "why_retrieved": "keyword #19 (2.37) + vector #9 (0.428)",
+      "text": "[(document start)]\nEach assignment is scored out of 10 points using the shared framework above, applied to the specific assignment\nbrief. For Assignments 1–4, the lowest of the four scores is dropped and the remaining three scores are\ncombined equally to make 50% of the final grade. Assignment 5 makes up 30%; attendance makes up 20%.\nYou get a pass on one missed session in the attendance grade, so you are not penalized for missing a single\nclass.\nEach assignment will have a current Definition of Done in its assignment brief or class deck. That brief may\nbe updated as the course develops; clearly announced updates supersede this syllabus overview. The shared\ngrading categories and the assignment’s overall weight remain the consistent structure.\nGrade Dispute Policy\nIf you would like an assignment re-graded, submit a written petition within 72 hours of receiving the grade."
+    }
+  ],
+  "answer": "Global participation is worth 40 points [S4][S5]. This includes attendance, punctuality, engagement, and the quality of discussion [S4][S5].",
+  "citations": {
+    "cited": [
+      "S4",
+      "S5"
+    ],
+    "unsupported": [],
+    "unused": [
+      "S1",
+      "S2",
+      "S3",
+      "S6"
+    ],
+    "declared_insufficient": false,
+    "uncited_answer": false,
+    "machine_check": "cited S4, S5 | unused retrieved passages: S1, S2, S3, S6",
+    "passes_machine_check": true
+  },
+  "timing_seconds": {
+    "retrieval": 0.167,
+    "generation": 16.69,
+    "total": 16.882
+  },
+  "tokens": {
+    "prompt": 2045,
+    "completion": 37
+  },
+  "model_options": {
+    "temperature": 0.1,
+    "top_p": 0.9,
+    "num_ctx": 4096,
+    "num_predict": 400
+  },
+  "test_id": "test-1"
+}

@@ -1,0 +1,109 @@
+{
+  "mode": "ask",
+  "retrieval_scope_note": "question names only \"247\"; evidence limited to that course",
+  "execution": "local",
+  "model": "gemma3n:e4b",
+  "runtime": "ollama 0.34.4",
+  "embed_model": "embeddinggemma:300m",
+  "question": "What are the graded components of Data Mining MBA 247?",
+  "scope": "all",
+  "top_k": 6,
+  "retrieved": [
+    {
+      "label": "S1",
+      "source_path": "vault/raw/Data Mining Syllabus.pdf",
+      "page": 1,
+      "section": "(document start)",
+      "source_type": "raw",
+      "chunk_id": "fc1ba59e46-001-001",
+      "why_retrieved": "keyword #2 (4.68) + vector #2 (0.603)",
+      "text": "[(document start)]\nPage 1 of 4\n Haas School of Business\n University of California, Berkeley\nSyllabus for MBA/EWMBA 247\nDescriptive and Predictive Data Mining\nFall 2026 (2 units)\nCourse Overview\nThe importance of data cannot be overemphasized. With the recent explosion in large-scale, high-\nresolution data, managers are increasingly required to make data-driven decisions, rather than rely on\nexperience and intuition alone. A key step in data-driven decision-making is data mining, which\nenables businesses to extract useful information and valuable insights from otherwise massive and\nunorganized data. This hands-on, introductory course teaches you the fundamental principles and\npractical skills you need to develop data mining models that describe and predict the effects of\nbusiness decisions in a variety of real-world business applications, including (but not limited to)"
+    },
+    {
+      "label": "S2",
+      "source_path": "vault/raw/Data Mining Syllabus.pdf",
+      "page": 3,
+      "section": "Software",
+      "source_type": "raw",
+      "chunk_id": "fc1ba59e46-003-009",
+      "why_retrieved": "keyword #3 (3.38) + vector #6 (0.471)",
+      "text": "[Software]\nsimple calculation problems meant to reinforce your conceptual understanding of the data mining\nmethods taught in class. These concept checks will be auto-graded on bCourses.\nGroup Workshop Assignments: In group assignments, you will analyze (large-scale) data sets and\nsolve data-driven problems using software tools. You work on group assignments during workshop\nsessions in Weeks 3, 5, and 8, and hand in your write-up within a week after the day of the workshop.\nStudents work in groups of 3 or 4. You can choose to form your own group or be randomly assigned\nto a group.\nConscientious contributions to the group assignments are strictly required. To enforce this policy, I will\nsolicit feedback from each of you about the contributions of your team members to group work.\nFailure to contribute adequately to the group will result in a grade penalty in this course. In addition, a"
+    },
+    {
+      "label": "S3",
+      "source_path": "vault/raw/Data Mining Syllabus.pdf",
+      "page": 3,
+      "section": "Software",
+      "source_type": "raw",
+      "chunk_id": "fc1ba59e46-003-010",
+      "why_retrieved": "keyword #8 (1.26) + vector #3 (0.506)",
+      "text": "[Software]\nFailure to contribute adequately to the group will result in a grade penalty in this course. In addition, a\npattern of such behavior will result in an academic performance review.\nFinal Exam: You will take an online exam to demonstrate your knowledge of data mining."
+    },
+    {
+      "label": "S4",
+      "source_path": "vault/wiki/Courses/Data Mining MBA 247.md",
+      "page": null,
+      "section": "Data Mining MBA 247",
+      "source_type": "wiki",
+      "chunk_id": "61fc1b708e-000-001",
+      "why_retrieved": "keyword #1 (6.20) + vector #1 (0.731)",
+      "text": "[Data Mining MBA 247]\nData Mining MBA 247\nThis course introduces the fundamental principles and practical skills of data mining, focusing on extracting insights from large datasets for data-driven decision-making. Topics include exploratory and descriptive data mining, as well as predictive modeling techniques.\nLogistics\n- Wednesdays Aug 26 - Oct 28, 2026 (10 weeks) 6:00pm-9:30pm PT\n- Chou Hall N300\n- Instructor Luyi Yang (contact details in the original source)\n- Office: F557 (Email for in-person appointments)\n- Assistant Ziyi Liu (contact details in the original source)\n## Grading\n- Class Participation: 20%\n- 4 Individual Concept Checks: 20%\n- 3 Group Workshop Assignments: 30%\n- Final Exam: 30%"
+    },
+    {
+      "label": "S5",
+      "source_path": "vault/wiki/Courses/Data Mining MBA 247.md",
+      "page": null,
+      "section": "Readings and Materials",
+      "source_type": "wiki",
+      "chunk_id": "61fc1b708e-000-003",
+      "why_retrieved": "vector #9 (0.418)",
+      "text": "[Readings and Materials]\nReadings and Materials\n- Selected chapters of Business Analytics (4th edition) by Camm et al. (required textbook)\n## Schedule Highlights\n- Online Remote Final Exam Oct 28"
+    },
+    {
+      "label": "S6",
+      "source_path": "vault/wiki/Courses/Data Mining MBA 247.md",
+      "page": null,
+      "section": "Attendance and Lateness",
+      "source_type": "wiki",
+      "chunk_id": "61fc1b708e-000-002",
+      "why_retrieved": "vector #11 (0.381)",
+      "text": "[Attendance and Lateness]\n## Grading\n- Class Participation: 20%\n- 4 Individual Concept Checks: 20%\n- 3 Group Workshop Assignments: 30%\n- Final Exam: 30%\nAttendance and Lateness\n- Class attendance is required, and expect “cold calls.”\nAssignments and Deadlines\n- Group workshop assignments during workshop sessions in Weeks 3, 5, and 8, and hand in your write-up within a week after the day of the workshop.\n- Students work in groups of 3 or 4.\n- Conscientious contributions to the group assignments are strictly required. Failure to contribute adequately to the group will result in a grade penalty."
+    }
+  ],
+  "answer": "ANswer: The graded components of Data Mining MBA 247 are Class Participation (20%), 4 Individual Concept Checks (20%), 3 Group Workshop Assignments (30%), and a Final Exam (30%) [S4][S5][S6]. Class participation is worth 20%, and there are four individual concept checks worth 20% [S4][S6]. Students will complete three group workshop assignments worth 30% [S4][S6]. A final exam worth 30% will also be graded [S4][S5][S6].",
+  "citations": {
+    "cited": [
+      "S4",
+      "S5",
+      "S6"
+    ],
+    "unsupported": [],
+    "unused": [
+      "S1",
+      "S2",
+      "S3"
+    ],
+    "declared_insufficient": false,
+    "uncited_answer": false,
+    "contract_violations": [],
+    "spelling_flags": [],
+    "machine_check": "cited S4, S5, S6 | unused retrieved passages: S1, S2, S3",
+    "passes_machine_check": true
+  },
+  "timing_seconds": {
+    "retrieval": 0.129,
+    "generation": 9.423,
+    "total": 9.56
+  },
+  "tokens": {
+    "prompt": 2169,
+    "completion": 126
+  },
+  "model_options": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "num_ctx": 4096,
+    "num_predict": 400
+  },
+  "test_id": "mode-check-cited-local"
+}

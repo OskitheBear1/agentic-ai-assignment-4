@@ -1,0 +1,109 @@
+{
+  "mode": "ask",
+  "retrieval_scope_note": "question names only \"Data Mining\"; evidence limited to that course",
+  "execution": "local",
+  "model": "gemma3n:e4b",
+  "runtime": "ollama 0.34.4",
+  "embed_model": "embeddinggemma:300m",
+  "question": "What are the graded components of Data Mining MBA 247?",
+  "scope": "all",
+  "top_k": 6,
+  "retrieved": [
+    {
+      "label": "S1",
+      "source_path": "vault/raw/Data Mining Syllabus.pdf",
+      "page": 1,
+      "section": "(document start)",
+      "source_type": "raw",
+      "chunk_id": "fc1ba59e46-001-001",
+      "why_retrieved": "keyword #2 (4.42) + vector #2 (0.603)",
+      "text": "[(document start)]\nPage 1 of 4\n Haas School of Business\n University of California, Berkeley\nSyllabus for MBA/EWMBA 247\nDescriptive and Predictive Data Mining\nFall 2026 (2 units)\nCourse Overview\nThe importance of data cannot be overemphasized. With the recent explosion in large-scale, high-\nresolution data, managers are increasingly required to make data-driven decisions, rather than rely on\nexperience and intuition alone. A key step in data-driven decision-making is data mining, which\nenables businesses to extract useful information and valuable insights from otherwise massive and\nunorganized data. This hands-on, introductory course teaches you the fundamental principles and\npractical skills you need to develop data mining models that describe and predict the effects of\nbusiness decisions in a variety of real-world business applications, including (but not limited to)"
+    },
+    {
+      "label": "S2",
+      "source_path": "vault/raw/Data Mining Syllabus.pdf",
+      "page": 3,
+      "section": "Software",
+      "source_type": "raw",
+      "chunk_id": "fc1ba59e46-003-009",
+      "why_retrieved": "keyword #3 (3.24) + vector #7 (0.471)",
+      "text": "[Software]\nsimple calculation problems meant to reinforce your conceptual understanding of the data mining\nmethods taught in class. These concept checks will be auto-graded on bCourses.\nGroup Workshop Assignments: In group assignments, you will analyze (large-scale) data sets and\nsolve data-driven problems using software tools. You work on group assignments during workshop\nsessions in Weeks 3, 5, and 8, and hand in your write-up within a week after the day of the workshop.\nStudents work in groups of 3 or 4. You can choose to form your own group or be randomly assigned\nto a group.\nConscientious contributions to the group assignments are strictly required. To enforce this policy, I will\nsolicit feedback from each of you about the contributions of your team members to group work.\nFailure to contribute adequately to the group will result in a grade penalty in this course. In addition, a"
+    },
+    {
+      "label": "S3",
+      "source_path": "vault/raw/Data Mining Syllabus.pdf",
+      "page": 2,
+      "section": "(document start)",
+      "source_type": "raw",
+      "chunk_id": "fc1ba59e46-002-004",
+      "why_retrieved": "keyword #6 (1.25) + vector #5 (0.492)",
+      "text": "[(document start)]\nPage 2 of 4\nCourse Format, Topics, and Schedule\nThe course consists of lectures, in-class discussions, and workshop sessions that provide hands-on\nopportunities to apply course concepts, with guidance from the instructional team. This course covers\nthree major topics: Exploratory Data Analysis (as the first step to interpret data, and as the last step\nto convey data), Descriptive Data Mining (using data to identify relationships, aka Unsupervised\nMachine Learning), and Predictive Data Mining (using data to make a prediction, aka Supervised\nMachine Learning). The week-by-week topics covered are as follows:\nSession\n(Wed) Topic Reading Due Before Class\n(Tue 10 pm)\nWeek 1\nAug 26\nExploratory Data Analysis\nFrequency Distributions, Cross Tabulation\nApplications: online retail, gender bias in Berkeley\ngraduate admissions, dishonesty in mileage reporting for\ncar insurance\nCamm Ch 2,\n3.2"
+    },
+    {
+      "label": "S4",
+      "source_path": "vault/wiki/Courses/Data Mining MBA 247.md",
+      "page": null,
+      "section": "Data Mining MBA 247",
+      "source_type": "wiki",
+      "chunk_id": "71de72b583-000-001",
+      "why_retrieved": "keyword #1 (5.87) + vector #1 (0.722)",
+      "text": "[Data Mining MBA 247]\nData Mining MBA 247\nThis course introduces the fundamental principles and practical skills of data mining, focusing on extracting insights from large datasets for data-driven decision-making. Topics include exploratory and descriptive data mining, as well as predictive modeling techniques.\nLogistics\n- Wednesdays Aug 26 - Oct 28, 2026 (10 weeks) 6:00pm-9:30pm PT\n- Chou Hall N300\n- Instructor: Luyi Yang\n- Email: (contact details in the original source)\n- Office: F557 (Email for in-person appointments)\n- Assistant: Ziyi Liu (contact details in the original source)\n## Grading\n- Class Participation: 20%\n- 4 Individual Concept Checks: 20%\n- 3 Group Workshop Assignments: 30%\n- Final Exam: 30%"
+    },
+    {
+      "label": "S5",
+      "source_path": "vault/wiki/Courses/Data Mining MBA 247.md",
+      "page": null,
+      "section": "Attendance and Lateness",
+      "source_type": "wiki",
+      "chunk_id": "71de72b583-000-002",
+      "why_retrieved": "vector #6 (0.487)",
+      "text": "[Attendance and Lateness]\n## Grading\n- Class Participation: 20%\n- 4 Individual Concept Checks: 20%\n- 3 Group Workshop Assignments: 30%\n- Final Exam: 30%\nAttendance and Lateness\n- Class attendance is required, and cold calls will occur.\nAssignments and Deadlines\n- Group workshop assignments are due within a week after the workshop session.\n- Students work in groups of 3 or 4.\nReadings and Materials\n- Selected chapters of Business Analytics (4th edition) by Camm et al. (required textbook)\n## Schedule Highlights\n- Online Remote Final Exam Oct 28"
+    },
+    {
+      "label": "S6",
+      "source_path": "vault/raw/Data Mining Syllabus.pdf",
+      "page": 3,
+      "section": "Software",
+      "source_type": "raw",
+      "chunk_id": "fc1ba59e46-003-010",
+      "why_retrieved": "keyword #9 (1.10) + vector #3 (0.506)",
+      "text": "[Software]\nFailure to contribute adequately to the group will result in a grade penalty in this course. In addition, a\npattern of such behavior will result in an academic performance review.\nFinal Exam: You will take an online exam to demonstrate your knowledge of data mining."
+    }
+  ],
+  "answer": "ANswer: The graded components of Data Mining MBA 247 are Class Participation (20%), 4 Individual Concept Checks (20%), 3 Group Workshop Assignments (30%), and a Final Exam (30%) [S4][S5].",
+  "citations": {
+    "cited": [
+      "S4",
+      "S5"
+    ],
+    "unsupported": [],
+    "unused": [
+      "S1",
+      "S2",
+      "S3",
+      "S6"
+    ],
+    "declared_insufficient": false,
+    "uncited_answer": false,
+    "contract_violations": [],
+    "spelling_flags": [],
+    "machine_check": "cited S4, S5 | unused retrieved passages: S1, S2, S3, S6",
+    "passes_machine_check": true
+  },
+  "timing_seconds": {
+    "retrieval": 0.158,
+    "generation": 8.21,
+    "total": 8.378
+  },
+  "tokens": {
+    "prompt": 2339,
+    "completion": 57
+  },
+  "model_options": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "num_ctx": 4096,
+    "num_predict": 400
+  },
+  "test_id": "mode-check-cited-offline"
+}

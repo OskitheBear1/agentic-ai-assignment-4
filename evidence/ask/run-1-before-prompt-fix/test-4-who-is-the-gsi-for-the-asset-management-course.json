@@ -1,0 +1,106 @@
+{
+  "mode": "ask",
+  "execution": "local",
+  "model": "gemma3n:e4b",
+  "runtime": "ollama 0.34.4",
+  "embed_model": "embeddinggemma:300m",
+  "question": "Who is the GSI for the Asset Management course?",
+  "scope": "all",
+  "top_k": 6,
+  "retrieved": [
+    {
+      "label": "S1",
+      "source_path": "vault/raw/Asset Management Syllabus.pdf",
+      "page": 1,
+      "section": "(document start)",
+      "source_type": "raw",
+      "chunk_id": "3f8d5907a6-001-001",
+      "why_retrieved": "keyword #2 (6.47) + vector #2 (0.426)",
+      "text": "[(document start)]\nAsset Management\nMBA 233\nFall 2026\nInstructor:  Sam Olesky\nEmail:  olesky@haas.berkeley.edu\nOffice Hours:  by appointment\nOffice Location:  F502N\nClass Hours:   Tuesdays and Thursdays 2:00 – 3:30\nClass Location: Cheit Hall, C220\nPrivacy and Recording Notice\nCourse Description: The course will cover a broad range of investments and structuring\ninvestment portfolios. We will consider investments, security selection and investment\nportfolios from the perspective of individual and institutional investors. The course is\ndesigned to develop investing knowledge empirically and through academic theory.\nRequired books: A Random Walk Down Wall Street, Burton G. Malkiel, 2023 edition, W.\nW. Norton & Company, Inc. (RW)\nUnconventional Success, David F. Swensen, 2005, Free Press (US)\nGrading: Contribution to class discussion will account for 25% of the grade. The midterm"
+    },
+    {
+      "label": "S2",
+      "source_path": "vault/raw/Asset Management Syllabus.pdf",
+      "page": 2,
+      "section": "November 3 Behavioral Models RW 10",
+      "source_type": "raw",
+      "chunk_id": "3f8d5907a6-002-005",
+      "why_retrieved": "keyword #9 (2.47) + vector #4 (0.361)",
+      "text": "[November 3 Behavioral Models RW 10]\nOctober 27 ETFs – speaker Bart Sikora - BlackRock iShares\nOctober 29 Mutual Funds,  Carl Kawaja – Capital Group\n Fundamental Equities\nNovember 3 Behavioral Models RW 10\n Behavioral mini-presentations\nNovember 5 AI and Machine Learning for Art Amador – Quantum Street AI\n Investments – Speaker\nNovember 10 Active and Passive Management US pages 203-207\n   and US chapters 7, 8, 10\nNovember 12 Smart Beta / Factor Investing RW pages 258-273\nNovember 17 Portfolio Construction US chapter 3 and RW pages 347-370\nNovember 19 Rebalancing & US chapter 6\n Volatility Harvesting"
+    },
+    {
+      "label": "S3",
+      "source_path": "vault/wiki/Courses/Asset Management MBA 233.md",
+      "page": null,
+      "section": "Asset Management MBA 233",
+      "source_type": "wiki",
+      "chunk_id": "18878f29f9-000-001",
+      "why_retrieved": "keyword #1 (10.11) + vector #1 (0.476)",
+      "text": "[Asset Management MBA 233]\nAsset Management MBA 233\nThis course explores investment strategies for individuals and institutions, combining practical application with academic theory. Students will learn about various investment types, security selection, and portfolio construction.\n## Logistics\n- Class Hours: Tuesdays and Thursdays 2:00 – 3:30\n- Class Location: Cheit Hall, C220\n- Instructor: Sam Olesky\n- Instructor Email: (contact details in the original source)\n- Instructor Office Location: F502N\n- Instructor Office Hours: by appointment\n- Course Dates: Fall 2026"
+    },
+    {
+      "label": "S4",
+      "source_path": "vault/raw/AgenticAISyllabus.pdf",
+      "page": 1,
+      "section": "MBA 290T: Fundamental of Agentic AI",
+      "source_type": "raw",
+      "chunk_id": "4b5a9caae6-001-002",
+      "why_retrieved": "keyword #3 (4.02) + vector #15 (0.325)",
+      "text": "[MBA 290T: Fundamental of Agentic AI]\nseven sessions we go from “what is a variable” to building and evaluating a tool-using AI agent — covering\nprogramming foundations, full-stack software systems, machine learning, deep learning and transformers,\nLLM behavior and retrieval, and agent architecture.\nThe focus isconceptual fluency that survives the tools. Models and frameworks change every quarter;\nthe mechanisms underneath them do not. You will leave able to build, evaluate, and lead technical AI work\n— not just talk about it.\nConcretely, the course targetsLevel 2 fluency: you do not need a PhD to reason about AI systems, but\nknowing how to use ChatGPT is not a differentiator either. Level 2 is understanding how these systems\nactually work well enough to make good decisions about them.\nLearning Outcomes\nA student who successfully completes this course will be able to:"
+    },
+    {
+      "label": "S5",
+      "source_path": "vault/raw/Asset Management Syllabus.pdf",
+      "page": 1,
+      "section": "Privacy and Recording Notice",
+      "source_type": "raw",
+      "chunk_id": "3f8d5907a6-001-002",
+      "why_retrieved": "keyword #14 (0.96) + vector #5 (0.357)",
+      "text": "[Privacy and Recording Notice]\nGrading: Contribution to class discussion will account for 25% of the grade. The midterm\nproject will comprise 25% of the grade and the final project will account for 30%.\nAssignments, collectively, will account for 10% of the course grade. Your Questions,\ncollectively, will account for 10% of the course grade. More than three absences will\nadversely affect the class contribution grade.\nDate Topic  Reading(s) / Speaker\nAugust 27 Course overview &\n Investments exercise\nSeptember 1 Risk and Return US chapter 1 and RW chapters 1, 2, 13\n Manias, Bubbles & Crashes\nSeptember 3  U.S. Equities US pages 33-48 and RW chapters 3, 4"
+    },
+    {
+      "label": "S6",
+      "source_path": "vault/raw/Negotiations Syllabus.pdf",
+      "page": 1,
+      "section": "(document start)",
+      "source_type": "raw",
+      "chunk_id": "0be2bed38d-001-001",
+      "why_retrieved": "keyword #6 (3.74) + vector #14 (0.325)",
+      "text": "[(document start)]\nHaas School of Business — University of California, Berkeley\nNegotiations and Conflict Resolution\nMBA 252 — Fall 2026\nProfessor: Solène Delecourt  (negotiationsolene@gmail.com)\nGSI: Oranda Hou\nGSR: Irina Liu\nDay: Wednesdays\nTime: MBA252.1 — 8:00–11:00 AM   |   MBA252.2 — 2:00–5:00 PM\nLocation: C220\nDates: 8/26, 9/2, 9/9, 9/16, 9/23, 9/30, 10/7, 10/14, 10/21, 10/28\nThis is a living document, updated periodically based on your feedback"
+    }
+  ],
+  "answer": "The GSIs for the Asset Management course are Oranda Hou [S6]. \n\nClosest available: The wiki does not contain the GSIs for the Asset Management course.",
+  "citations": {
+    "cited": [
+      "S6"
+    ],
+    "unsupported": [],
+    "unused": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5"
+    ],
+    "declared_insufficient": false,
+    "uncited_answer": false,
+    "machine_check": "cited S6 | unused retrieved passages: S1, S2, S3, S4, S5",
+    "passes_machine_check": true
+  },
+  "timing_seconds": {
+    "retrieval": 0.23,
+    "generation": 7.391,
+    "total": 7.659
+  },
+  "tokens": {
+    "prompt": 1991,
+    "completion": 36
+  },
+  "model_options": {
+    "temperature": 0.1,
+    "top_p": 0.9,
+    "num_ctx": 4096,
+    "num_predict": 400
+  },
+  "test_id": "test-4"
+}

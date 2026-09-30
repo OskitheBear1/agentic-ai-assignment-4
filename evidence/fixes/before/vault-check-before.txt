@@ -1,0 +1,19 @@
+[1mVAULT CHECK[0m  vault
+
+  notes                     24
+  internal [[links]]        108 resolving
+  broken internal links     [32m0[0m
+
+  [31munresolvable source links: 4[0m
+    - vault/index.md  ->  ../../raw/AgenticAISyllabus.pdf
+    - vault/index.md  ->  ../../raw/Asset%20Management%20Syllabus.pdf
+    - vault/index.md  ->  ../../raw/Data%20Mining%20Syllabus.pdf
+    - vault/index.md  ->  ../../raw/Negotiations%20Syllabus.pdf
+  machine-style filenames   [32m0[0m
+  filenames over 6 words    [32m0[0m
+  heading/filename mismatches [32m0[0m
+  notes with no incoming link [32m0[0m
+
+  originals preserved       4 file(s) in raw/
+
+[31m4 problem(s)[0m

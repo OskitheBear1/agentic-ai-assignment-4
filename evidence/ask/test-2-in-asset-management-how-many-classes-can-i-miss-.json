@@ -1,0 +1,109 @@
+{
+  "mode": "ask",
+  "retrieval_scope_note": "question names only \"Asset Management\"; evidence limited to that course",
+  "execution": "local",
+  "model": "gemma3n:e4b",
+  "runtime": "ollama 0.34.4",
+  "embed_model": "embeddinggemma:300m",
+  "question": "In Asset Management, how many classes can I miss before it starts to hurt my grade?",
+  "scope": "all",
+  "top_k": 6,
+  "retrieved": [
+    {
+      "label": "S1",
+      "source_path": "vault/raw/Asset Management Syllabus.pdf",
+      "page": 1,
+      "section": "Privacy and Recording Notice",
+      "source_type": "raw",
+      "chunk_id": "3f8d5907a6-001-002",
+      "why_retrieved": "keyword #3 (1.34) + vector #1 (0.569)",
+      "text": "[Privacy and Recording Notice]\nGrading: Contribution to class discussion will account for 25% of the grade. The midterm\nproject will comprise 25% of the grade and the final project will account for 30%.\nAssignments, collectively, will account for 10% of the course grade. Your Questions,\ncollectively, will account for 10% of the course grade. More than three absences will\nadversely affect the class contribution grade.\nDate Topic  Reading(s) / Speaker\nAugust 27 Course overview &\n Investments exercise\nSeptember 1 Risk and Return US chapter 1 and RW chapters 1, 2, 13\n Manias, Bubbles & Crashes\nSeptember 3  U.S. Equities US pages 33-48 and RW chapters 3, 4"
+    },
+    {
+      "label": "S2",
+      "source_path": "vault/raw/Asset Management Syllabus.pdf",
+      "page": 1,
+      "section": "(document start)",
+      "source_type": "raw",
+      "chunk_id": "3f8d5907a6-001-001",
+      "why_retrieved": "keyword #2 (3.29) + vector #3 (0.496)",
+      "text": "[(document start)]\nAsset Management\nMBA 233\nFall 2026\nInstructor:  Sam Olesky\nEmail:  olesky@haas.berkeley.edu\nOffice Hours:  by appointment\nOffice Location:  F502N\nClass Hours:   Tuesdays and Thursdays 2:00 – 3:30\nClass Location: Cheit Hall, C220\nPrivacy and Recording Notice\nCourse Description: The course will cover a broad range of investments and structuring\ninvestment portfolios. We will consider investments, security selection and investment\nportfolios from the perspective of individual and institutional investors. The course is\ndesigned to develop investing knowledge empirically and through academic theory.\nRequired books: A Random Walk Down Wall Street, Burton G. Malkiel, 2023 edition, W.\nW. Norton & Company, Inc. (RW)\nUnconventional Success, David F. Swensen, 2005, Free Press (US)\nGrading: Contribution to class discussion will account for 25% of the grade. The midterm"
+    },
+    {
+      "label": "S3",
+      "source_path": "vault/raw/Asset Management Syllabus.pdf",
+      "page": 3,
+      "section": "(document start)",
+      "source_type": "raw",
+      "chunk_id": "3f8d5907a6-003-008",
+      "why_retrieved": "keyword #5 (1.00) + vector #5 (0.425)",
+      "text": "[(document start)]\nin this course will receive a failing grade in the course and will also be reported to the\nUniversity Center for Student Conduct.  In order to guarantee that you are not suspected of\ncheating, please keep your eyes on your own materials and do not converse with others\nduring the quizzes and exams.\nPlagiarism:  To copy text or ideas from another source without appropriate reference is\nplagiarism and will result in a failing grade for your assignment and usually further\ndisciplinary action.  For additional information on plagiarism and how to avoid it, see, for\nexample:  http://gsi.berkeley.edu/teachingguide/misconduct/prevent-plag.html\nAcademic Integrity and Ethics:  Cheating on exams and plagiarism are two common\nexamples of dishonest, unethical behavior.  Honesty and integrity are of great importance in"
+    },
+    {
+      "label": "S4",
+      "source_path": "vault/wiki/Courses/Asset Management MBA 233.md",
+      "page": null,
+      "section": "Asset Management MBA 233",
+      "source_type": "wiki",
+      "chunk_id": "52f744914e-000-001",
+      "why_retrieved": "keyword #1 (7.24) + vector #4 (0.487)",
+      "text": "[Asset Management MBA 233]\nAsset Management MBA 233\nThis course explores investment strategies for individuals and institutions, combining practical application with academic theory. Students will learn about various asset classes, portfolio construction, and investment analysis techniques.\n## Logistics\n- Class Hours: Tuesdays and Thursdays 2:00 – 3:30\n- Class Location: Cheit Hall, C220\n- Instructor: Sam Olesky\n- Instructor Email: (contact details in the original source)\n- Instructor Office Location: F502N\n- Instructor Office Hours: by appointment\n- Term Dates: Fall 2026"
+    },
+    {
+      "label": "S5",
+      "source_path": "vault/wiki/Courses/Asset Management MBA 233.md",
+      "page": null,
+      "section": "Grading",
+      "source_type": "wiki",
+      "chunk_id": "52f744914e-000-002",
+      "why_retrieved": "keyword #6 (0.88) + vector #2 (0.547)",
+      "text": "[Grading]\n- Instructor Office Location: F502N\n- Instructor Office Hours: by appointment\n- Term Dates: Fall 2026\nGrading\n- Contribution to class discussion: 25%\n- Midterm project: 25%\n- Final project: 30%\n- Assignments: 10%\n- Questions: 10%\n- More than three absences will adversely affect the class contribution grade.\nAttendance and Lateness\n- More than three absences will adversely affect the class contribution grade.\nAssignments and Deadlines\n- Assignments are to be completed independently.\nReadings and Materials\n- A Random Walk Down Wall Street, Burton G. Malkiel, 2023 edition, W. W. Norton & Company, Inc. (RW)\n- Unconventional Success, David F. Swensen, 2005, Free Press (US) - Recommended\n## Schedule Highlights\n- First session: August 27\n- Last session: December 3\n- No class: November 24\n- No class: November 26\n- Midterm project work session: October 8\n- Final project work session: December 3"
+    },
+    {
+      "label": "S6",
+      "source_path": "vault/raw/Asset Management Syllabus.pdf",
+      "page": 4,
+      "section": "(document start)",
+      "source_type": "raw",
+      "chunk_id": "3f8d5907a6-004-010",
+      "why_retrieved": "keyword #7 (0.71) + vector #6 (0.390)",
+      "text": "[(document start)]\nThere may be times when there is temptation to engage in some kind of cheating in order to\nimprove a grade or otherwise advance your career.  This could be as blatant as having\nsomeone else sit for you in an exam, or submitting a written assignment that has been copied\nfrom another source.  And it could be as subtle as glancing at a fellow student’s exam when\nyou are unsure of an answer to a question and are looking for some confirmation.  One might\ndo any of these things and potentially not get caught.  However, if you cheat, no matter how\nmuch you may have learned in this class, you have failed to learn perhaps the most important\nlesson of all."
+    }
+  ],
+  "answer": "ANswer: You can miss more than three absences before it adversely affects the class contribution grade [S1][S5].",
+  "citations": {
+    "cited": [
+      "S1",
+      "S5"
+    ],
+    "unsupported": [],
+    "unused": [
+      "S2",
+      "S3",
+      "S4",
+      "S6"
+    ],
+    "declared_insufficient": false,
+    "uncited_answer": false,
+    "contract_violations": [],
+    "spelling_flags": [],
+    "machine_check": "cited S1, S5 | unused retrieved passages: S2, S3, S4, S6",
+    "passes_machine_check": true
+  },
+  "timing_seconds": {
+    "retrieval": 2.625,
+    "generation": 6.983,
+    "total": 9.616
+  },
+  "tokens": {
+    "prompt": 2495,
+    "completion": 28
+  },
+  "model_options": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "num_ctx": 4096,
+    "num_predict": 400
+  },
+  "test_id": "test-2"
+}

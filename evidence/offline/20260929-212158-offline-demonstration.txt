@@ -1,0 +1,628 @@
+================================================================
+ OFFLINE DEMONSTRATION
+ Tue Sep 29 21:22:00 PDT 2026
+ MacBook Pro Mac14,10 / Apple M2 Pro / 16 GB unified / macOS 26.6.2
+ gemma3n:e4b (Q4_0) + embeddinggemma:300m via Ollama 0.34.4, local
+================================================================
+
+================================================================
+ PROOF THERE IS NO NETWORK
+================================================================
+$ networksetup -getairportpower en0
+Wi-Fi Power (en0): Off
+$ ifconfig | grep -c 'status: active'
+0
+$ route -n get default
+route: writing to routing socket: not in table
+$ curl -s -m 6 https://ollama.com                          # model weights host
+https://ollama.com -> no connection, curl exit 6 — UNREACHABLE, as expected offline
+$ curl -s -m 6 https://generativelanguage.googleapis.com   # hosted Gemma (optional online mode)
+https://generativelanguage.googleapis.com -> no connection, curl exit 6 — UNREACHABLE, as expected offline
+$ curl -s -m 6 https://api.anthropic.com                   # the AI assistant that helped build this
+https://api.anthropic.com -> no connection, curl exit 6 — UNREACHABLE, as expected offline
+$ ping -c 2 -W 2000 1.1.1.1
+
+--- 1.1.1.1 ping statistics ---
+2 packets transmitted, 0 packets received, 100.0% packet loss
+$ nslookup ollama.com
+;; connection timed out; no servers could be reached
+
+
+UNREACHABLE / 100% packet loss / DNS failure = no internet. That is the expected result.
+
+================================================================
+ THE LOCAL RUNTIME IS UNAFFECTED (127.0.0.1)
+================================================================
+$ curl -s http://127.0.0.1:11434/api/version
+{"version":"0.34.4"}
+$ ollama ps   (empty: models unloaded, so what follows is a cold start from local weights)
+NAME    ID    SIZE    PROCESSOR    CONTEXT    UNTIL 
+$ ollama list
+NAME                   ID              SIZE      MODIFIED          
+embeddinggemma:300m    85462619ee72    621 MB    About an hour ago    
+gemma3n:e4b            15cb39fd9394    7.5 GB    About an hour ago    
+
+================================================================
+ STEP 1 — restart the CLI in a fresh process, check health
+================================================================
+$ ./wiki doctor
+RUNTIME
+  ollama              reachable at http://127.0.0.1:11434 (v0.34.4)
+  generation model    gemma3n:e4b  —  installed
+  embedding model     embeddinggemma:300m  —  installed
+
+INDEX
+  passages            76 (63 raw, 13 wiki)
+  vectors             76
+  chunks file         .wiki_index/chunks.jsonl
+
+VAULT
+  original sources    4 in vault/raw
+  wiki notes          18 in vault/wiki
+  index page          present
+  persona.md          present
+  wiki-instructions.md present
+  ingest-instructions.md present
+
+DISK
+  free space          407 GB
+
+================================================================
+ STEP 2 — CLI help
+================================================================
+$ ./wiki --help
+usage: wiki [-h] [--version] <command> ...
+
+Personal course wiki: local Gemma + RAG over your own sources. Local execution is the default and works with no network.
+
+positional arguments:
+  <command>
+    ingest    read sources, generate notes, rebuild index
+    reindex   rebuild the retrieval index only (no note generation)
+    search    show original passages, no generated answer
+    ask       standalone factual answer with citations
+    chat      start the personal assistant
+    doctor    check runtime, models, index and vault health
+    check     verify wiki links and source references
+    catalog   print the source catalog
+    test      run the saved ask-mode eval set
+
+options:
+  -h, --help  show this help message and exit
+  --version   show program's version number and exit
+
+examples
+  ./wiki doctor                                   check runtime, models, index
+  ./wiki ingest ./vault/raw                       read sources, write notes, index
+  ./wiki ingest "./vault/raw/Data Mining Syllabus.pdf"    one source only
+  ./wiki reindex                                  rebuild the index, no model prose
+  ./wiki search "participation points"            original passages, no answer
+  ./wiki search "hedge funds" --no-vectors        keyword-only (works with model off)
+  ./wiki ask "How many points is participation worth in Negotiations?"
+  ./wiki ask "..." --top-k 8 --scope raw          tune retrieval for one question
+  ./wiki chat                                     start the assistant
+  ./wiki check                                    verify links and source references
+  ./wiki test                                     run the four saved ask-mode evals
+
+configuration
+  instructions/persona.md            chat personality and capability description
+  instructions/wiki-instructions.md  research rules used by ask mode
+  instructions/ingest-instructions.md  the note contract used during ingestion
+  environment: WIKI_MODEL, WIKI_EMBED_MODEL, WIKI_OLLAMA_HOST override defaults
+
+layout
+  vault/raw/    original sources, never modified
+  vault/wiki/   generated + reviewed notes (open vault/ as the Obsidian vault)
+  .wiki_index/  retrieval chunks, vectors, source catalog  (outside the vault)
+  evidence/     saved runs: ask cards, mode checks, offline proof
+
+================================================================
+ STEP 3 — ingest a local source OFFLINE (local Gemma writes the note)
+================================================================
+$ ./wiki ingest "./vault/raw/Data Mining Syllabus.pdf"
+Ignoring wrong pointing object 6 0 (offset 0)
+Ignoring wrong pointing object 8 0 (offset 0)
+Ignoring wrong pointing object 10 0 (offset 0)
+Ignoring wrong pointing object 12 0 (offset 0)
+Ignoring wrong pointing object 14 0 (offset 0)
+Ignoring wrong pointing object 16 0 (offset 0)
+Ignoring wrong pointing object 22 0 (offset 0)
+Ignoring wrong pointing object 24 0 (offset 0)
+Ignoring wrong pointing object 26 0 (offset 0)
+Ignoring wrong pointing object 28 0 (offset 0)
+Ignoring wrong pointing object 36 0 (offset 0)
+INGEST 1 source(s) from vault/raw/Data Mining Syllabus.pdf
+
+  → Data Mining Syllabus.pdf: 4 page(s), 9,106 characters extracted
+    sending 9,106 characters to gemma3n:e4b
+    model returned 'Data Mining MBA 247' in 37.4s (537 tokens)
+    privacy guard: redacted 2 contact detail(s) the model copied into the note body
+
+  rebuilding navigation (topic hubs, people, index.md)
+  rebuilding retrieval index
+  embedding 75 passages with embeddinggemma:300m ...
+
+Done in 41.3s
+  notes: 4 course, 6 topic, 8 people, 1 index
+  index: 75 passages (63 from raw sources, 12 from wiki notes), 75 vectors
+
+$ ollama ps   (resident memory during/after local generation)
+NAME                   ID              SIZE      PROCESSOR    CONTEXT    UNTIL              
+embeddinggemma:300m    85462619ee72    679 MB    100% GPU     2048       4 minutes from now    
+gemma3n:e4b            15cb39fd9394    3.0 GB    100% GPU     8192       4 minutes from now    
+
+Note: the note count is unchanged, which is the re-ingestion check --
+the same source updates the same note instead of creating a duplicate.
+
+================================================================
+ STEP 4 — the source catalog (machine id <-> readable path)
+================================================================
+$ ./wiki catalog
+SOURCE CATALOG  (8 entries)
+
+machine id   layer   pgs  path
+------------------------------------------------------------------------------------------------
+4b5a9caae6   raw       8  vault/raw/AgenticAISyllabus.pdf
+3f8d5907a6   raw       4  vault/raw/Asset Management Syllabus.pdf
+fc1ba59e46   raw       4  vault/raw/Data Mining Syllabus.pdf
+0be2bed38d   raw       5  vault/raw/Negotiations Syllabus.pdf
+52f744914e   wiki      0  vault/wiki/Courses/Asset Management MBA 233.md
+71de72b583   wiki      0  vault/wiki/Courses/Data Mining MBA 247.md
+c95eda04e3   wiki      0  vault/wiki/Courses/Fundamental of Agentic AI MBA 290T.md
+0a0434975a   wiki      0  vault/wiki/Courses/Negotiations MBA 252.md
+
+The machine id is a content hash of the file. It appears in each note's
+front matter as `source_id`, which is how re-ingestion updates a note
+in place instead of creating a duplicate.
+
+================================================================
+ STEP 5 — ALL FOUR ASK-MODE TESTS, OFFLINE
+================================================================
+Expectations were written before the harness ran: tests/eval_questions.json
+$ ./wiki test
+ASK-MODE EVAL SET  4 test(s), execution=local
+expectations from tests/eval_questions.json (outside the vault, not retrievable)
+
+==============================================================================
+test-1 — direct, single source
+expected: States 40 points out of 100, cited to the Negotiations syllabus grading table.
+
+Q: How many points is global participation worth in the Negotiations course?
+   mode=ask  execution=local  model=gemma3n:e4b
+
+scope: question names only "Negotiations"; evidence limited to that course
+Retrieved passages
+  [S1] vault/raw/Negotiations Syllabus.pdf (p.2, Course Description)  [raw]  keyword #2 (5.24) + vector #2 (0.565)
+  [S2] vault/raw/Negotiations Syllabus.pdf (p.2, Course Description)  [raw]  keyword #3 (4.69) + vector #4 (0.553)
+  [S3] vault/raw/Negotiations Syllabus.pdf (p.2, Course Description)  [raw]  keyword #5 (3.70) + vector #3 (0.556)
+  [S4] vault/wiki/Courses/Negotiations MBA 252.md (§, Grading)  [wiki]  keyword #1 (5.35) + vector #1 (0.594)
+  [S5] vault/wiki/Courses/Negotiations MBA 252.md (§, Negotiations MBA 252)  [wiki]  keyword #6 (3.41) + vector #9 (0.425)
+  [S6] vault/wiki/Courses/Negotiations MBA 252.md (§, Attendance and Lateness)  [wiki]  keyword #9 (1.84) + vector #7 (0.435)
+
+Answer
+ANswer: Global participation is worth 40 points in the Negotiaions course [S4][S5]. This includes attendance, punctuality, engagement, and the quality of discussion [S4].
+
+Citation check [OK] cited S4, S5 | unused retrieved passages: S1, S2, S3, S6 | spelling flags (in the answer, absent from every cited passage): Negotiaions
+  S4 -> vault/wiki/Courses/Negotiations MBA 252.md (§, Grading)
+  S5 -> vault/wiki/Courses/Negotiations MBA 252.md (§, Negotiations MBA 252)
+retrieval 0.055s | generation 15.914s | 2466 prompt tok, 43 completion tok
+Verdict PASS
+  expected source retrieved: True
+  answer contains expected text: True
+  citations resolve: True
+  evidence card: evidence/ask/test-1-how-many-points-is-global-participation-worth-in.md
+
+==============================================================================
+test-2 — answerable, deliberately reworded
+expected: States that more than three absences will adversely affect the class contribution grade, cited to the Asset Management syllabus.
+
+Q: In Asset Management, how many classes can I miss before it starts to hurt my grade?
+   mode=ask  execution=local  model=gemma3n:e4b
+
+scope: question names only "Asset Management"; evidence limited to that course
+Retrieved passages
+  [S1] vault/raw/Asset Management Syllabus.pdf (p.1, Privacy and Recording Notice)  [raw]  keyword #3 (1.34) + vector #1 (0.569)
+  [S2] vault/raw/Asset Management Syllabus.pdf (p.1, (document start))  [raw]  keyword #2 (3.29) + vector #3 (0.496)
+  [S3] vault/raw/Asset Management Syllabus.pdf (p.3, (document start))  [raw]  keyword #5 (1.00) + vector #5 (0.425)
+  [S4] vault/wiki/Courses/Asset Management MBA 233.md (§, Asset Management MBA 233)  [wiki]  keyword #1 (7.24) + vector #4 (0.487)
+  [S5] vault/wiki/Courses/Asset Management MBA 233.md (§, Grading)  [wiki]  keyword #6 (0.88) + vector #2 (0.547)
+  [S6] vault/raw/Asset Management Syllabus.pdf (p.4, (document start))  [raw]  keyword #7 (0.71) + vector #6 (0.390)
+
+Answer
+ANswer: You can miss more than three absences before it adversely affects the class contribution grade [S1][S5].
+
+Citation check [OK] cited S1, S5 | unused retrieved passages: S2, S3, S4, S6
+  S1 -> vault/raw/Asset Management Syllabus.pdf (p.1, Privacy and Recording Notice)
+  S5 -> vault/wiki/Courses/Asset Management MBA 233.md (§, Grading)
+retrieval 1.604s | generation 7.158s | 2495 prompt tok, 28 completion tok
+Verdict PASS
+  expected source retrieved: True
+  answer contains expected text: True
+  citations resolve: True
+  evidence card: evidence/ask/test-2-in-asset-management-how-many-classes-can-i-miss-.md
+
+==============================================================================
+test-3 — answerable, spans two sources
+expected: Names Data Mining (MBA 247), Wednesdays 6:00pm-9:30pm PT in Chou Hall N300, and Negotiations (MBA 252), Wednesdays, 8:00-11:00 AM for section 252.1 and 2:00-5:00 PM for 252.2 in C220. Cites both syllabi. Should not list Agentic AI (Tuesdays) or Asset Management (Tuesdays and Thursdays).
+
+Q: Which of my Fall 2026 courses meet on Wednesdays, and at what times?
+   mode=ask  execution=local  model=gemma3n:e4b
+
+Retrieved passages
+  [S1] vault/raw/Negotiations Syllabus.pdf (p.1, (document start))  [raw]  keyword #1 (7.72) + vector #8 (0.450)
+  [S2] vault/raw/AgenticAISyllabus.pdf (p.1, MBA 290T: Fundamental of Agentic AI)  [raw]  keyword #2 (4.92) + vector #9 (0.447)
+  [S3] vault/raw/Data Mining Syllabus.pdf (p.1, Instructor Luyi Yang)  [raw]  keyword #13 (2.14) + vector #6 (0.491)
+  [S4] vault/raw/Asset Management Syllabus.pdf (p.1, (document start))  [raw]  keyword #7 (3.78) + vector #13 (0.429)
+  [S5] vault/raw/Data Mining Syllabus.pdf (p.1, (document start))  [raw]  keyword #16 (1.85) + vector #5 (0.494)
+  [S6] vault/raw/Data Mining Syllabus.pdf (p.1, (document start))  [raw]  keyword #6 (3.87) + vector #20 (0.397)
+
+Answer
+ANSWER: MBA 252 meets on Wednesdays from 8:00–11:00 AM and MBA 252.2 meets on Wednesdays from 2:00–5:00 PM [S1]. Data Mining meets on Wednesdays from 6:00pm-9:30pm [S3][S5].
+
+Citation check [OK] cited S1, S3, S5 | unused retrieved passages: S2, S4, S6
+  S1 -> vault/raw/Negotiations Syllabus.pdf (p.1, (document start))
+  S3 -> vault/raw/Data Mining Syllabus.pdf (p.1, Instructor Luyi Yang)
+  S5 -> vault/raw/Data Mining Syllabus.pdf (p.1, (document start))
+retrieval 0.18s | generation 8.982s | 2588 prompt tok, 76 completion tok
+Verdict PARTIAL
+  expected source retrieved: True
+  answer contains expected text: False  (missing: ['Negotiations'])
+  citations resolve: True
+  evidence card: evidence/ask/test-3-which-of-my-fall-2026-courses-meet-on-wednesdays.md
+
+==============================================================================
+test-4 — unsupported - expected refusal
+expected: Explicitly states the wiki does not contain a GSI for Asset Management. Must NOT answer 'Oranda Hou', who is the GSI for Negotiations, not Asset Management.
+
+Q: Who is the GSI for the Asset Management course?
+   mode=ask  execution=local  model=gemma3n:e4b
+
+scope: question names only "Asset Management"; evidence limited to that course
+Retrieved passages
+  [S1] vault/raw/Asset Management Syllabus.pdf (p.1, (document start))  [raw]  keyword #2 (4.01) + vector #2 (0.426)
+  [S2] vault/raw/Asset Management Syllabus.pdf (p.1, Privacy and Recording Notice)  [raw]  keyword #3 (1.44) + vector #4 (0.357)
+  [S3] vault/raw/Asset Management Syllabus.pdf (p.2, November 3 Behavioral Models RW 10)  [raw]  keyword #4 (1.26) + vector #3 (0.361)
+  [S4] vault/wiki/Courses/Asset Management MBA 233.md (§, Asset Management MBA 233)  [wiki]  keyword #1 (5.82) + vector #1 (0.470)
+  [S5] vault/wiki/Courses/Asset Management MBA 233.md (§, Grading)  [wiki]  vector #8 (0.274)
+  [S6] vault/raw/Asset Management Syllabus.pdf (p.3, (document start))  [raw]  keyword #5 (1.24) + vector #9 (0.233)
+
+Answer
+INSUFFICIENT EVIDENCE: the wiki does not contain the GSI for the Asset Management course.
+Closest available: Academic Integrity and Ethics: Cheating on exams and plagiarism are two common examples of dishonest, unethical behavior. Honesty and integrity are of great importance in [S6].
+
+Citation check [OK] declared insufficient evidence (no citation required)
+  S6 -> vault/raw/Asset Management Syllabus.pdf (p.3, (document start))
+retrieval 0.566s | generation 8.917s | 2518 prompt tok, 61 completion tok
+Verdict PASS
+  expected source retrieved: True
+  answer contains expected text: True
+  citations resolve: True
+  evidence card: evidence/ask/test-4-who-is-the-gsi-for-the-asset-management-course.md
+
+==============================================================================
+SUMMARY  PASS 3  PARTIAL 1
+  test-1   PASS     How many points is global participation worth in the Negotiations course?
+  test-2   PASS     In Asset Management, how many classes can I miss before it starts to hurt my grade?
+  test-3   PARTIAL  Which of my Fall 2026 courses meet on Wednesdays, and at what times?
+  test-4   PASS     Who is the GSI for the Asset Management course?
+
+summary written to evidence/ask/20260929-212348-eval-summary.json
+
+================================================================
+ STEP 6 — ALL EIGHT MODE-BOUNDARY CHECKS, OFFLINE
+================================================================
+$ ./scripts/mode-checks.sh offline
+===============================================================
+ MODE BOUNDARY CHECKS — offline
+ Tue Sep 29 21:23:48 PDT 2026
+===============================================================
+
+### Network reachability at start of run
+$ curl -s -m 5 https://ollama.com
+UNREACHABLE — no internet, which is what the offline run must show
+$ ping -c 1 -W 2000 1.1.1.1
+
+--- 1.1.1.1 ping statistics ---
+1 packets transmitted, 0 packets received, 100.0% packet loss
+
+### Runtime and model identity
+$ ./wiki doctor
+RUNTIME
+  ollama              reachable at http://127.0.0.1:11434 (v0.34.4)
+  generation model    gemma3n:e4b  —  installed
+  embedding model     embeddinggemma:300m  —  installed
+
+INDEX
+  passages            75 (63 raw, 12 wiki)
+  vectors             75
+  chunks file         .wiki_index/chunks.jsonl
+
+VAULT
+  original sources    4 in vault/raw
+  wiki notes          18 in vault/wiki
+  index page          present
+  persona.md          present
+  wiki-instructions.md present
+  ingest-instructions.md present
+
+DISK
+  free space          403 GB
+
+===============================================================
+CHECK 1 — chat: capability questions must not search the notes,
+          must not cite, and must not refuse for lack of evidence.
+CHECK 2 — chat follow-up: 'make that shorter' must use the
+          conversation, not a fresh lookup.
+CHECK 3 — chat: a fact the user asserts is conversation, not evidence.
+CHECK 4 — chat: a real syllabus question does trigger retrieval + citation.
+===============================================================
+
+Archivist — local study assistant for your Fall 2026 Haas courses
+model: gemma3n:e4b (local)   wiki: 18 notes, 75 indexed passages
+
+This is chat mode: conversational, uses the current conversation, and looks up
+your notes only when a turn needs a recorded fact.
+  For a checked factual answer   ->  /ask <question>   (or exit and run `./wiki ask "..."`)
+  To see raw source passages     ->  /search <terms>
+  Commands                       ->  /help   /save   /reset   /exit
+
+you> [retrieval OFF — rule: capability/meta/follow-up turn, answered from persona and conversation]
+
+I can assist with planning for your Fall 2026 MBA coursework at Berkeley Haas. I can brainstorm, draft, outline, and compare options related to your classes. For example, if you'd like a suggestion on how to structure your study schedule, I can offer one. 
+
+Just let me know what you'd like to work on.
+(4.738s, gemma3n:e4b, local)
+
+you> [retrieval OFF — rule: capability/meta/follow-up turn, answered from persona and conversation]
+
+We can discuss your study plan for Fall 2026. I can help you brainstorm schedules, compare different approaches to managing your coursework, or outline a plan for a specific class. 
+
+For instance, if you're unsure how to allocate time between your MBA 290T, MBA 233, MBA 247, and MBA 252 courses, I can offer a suggestion. Just tell me what you'd like to focus on.
+(4.063s, gemma3n:e4b, local)
+
+you> [retrieval OFF — model router: CHAT (2.95s)]
+
+Suggestion: Prioritize one course per week. This ensures focused effort and prevents feeling overwhelmed by the workload.
+
+Here's a 4-bullet plan to help you manage all four courses this term:
+
+*   **Weekly Focus:** Each week, dedicate the majority of your study time to a single course. This allows for deeper engagement with the material.
+*   **Time Blocking:** Schedule specific blocks of time in your calendar for each course, treating these like important meetings.
+*   **Review Schedule:** At the end of each week, review your progress in each course and adjust your schedule for the following week as needed.
+*   **Proactive Planning:** Before each class, spend a few minutes reviewing the syllabus and any assigned readings to prepare for the material.
+(13.432s, gemma3n:e4b, local)
+
+you> [retrieval OFF — rule: capability/meta/follow-up turn, answered from persona and conversation]
+
+Suggestion: Focus on weekly prioritization and time blocking. This provides a structured approach to managing your coursework.
+
+Here's a shorter 4-bullet plan:
+
+* **Weekly Focus:** Dedicate most study time to one course per week.
+* **Time Blocks:** Schedule specific study times for each course.
+* **Weekly Review:** Review progress and adjust the schedule each week.
+* **Pre-Class Prep:** Briefly review syllabus and readings before each class.
+(3.916s, gemma3n:e4b, local)
+
+you> [retrieval OFF — rule: user is asserting a fact, not asking for one]
+
+Understood. I have noted that your Negotiations final exam is on December 15th at 9am.
+(1.424s, gemma3n:e4b, local)
+
+you> [retrieval ON — rule: asks for a recorded syllabus fact]
+  [S1] vault/raw/Negotiations Syllabus.pdf (p.2, Course Description)
+  [S2] vault/raw/Negotiations Syllabus.pdf (p.2, Course Description)
+  [S3] vault/raw/Negotiations Syllabus.pdf (p.2, Course Description)
+  [S4] vault/wiki/Courses/Negotiations MBA 252.md (§, Grading)
+
+Participation is worth 40 points in Negotiaions [S4].
+(3.297s, gemma3n:e4b, local)
+
+you> bye.
+[transcript saved to evidence/modes/20260929-212427-chat-session.md]
+
+===============================================================
+CHECK 5 — search: original passages and paths, NO generated answer.
+===============================================================
+$ ./wiki search "attendance absences deductions" -k 3
+SEARCH "attendance absences deductions"   scope=all   hybrid BM25+vector
+3 passage(s) in 0.084s. No answer is generated in this mode.
+
+[S1] vault/raw/Negotiations Syllabus.pdf
+      page 3 | section: (document start) | raw | keyword #1 (9.10) + vector #1 (0.538)
+      [(document start)]
+      Policies
+      Attendance & Absences
+      ● Notice requirement: Always notify the professor by email as soon as you know you'll miss a class — ideally at
+      least 24 hours in advance.
+      ● Point deductions (out of 100):
+      ● Missed a class, gave at least 24 hours' notice: –2 points
+      ● Missed a class, did not give 24 hours' notice: –3 points (this replaces the 2-point deduction — it is not an
+      additional penalty on top of it)
+      Free pass: Your first missed class each term costs nothing IF you send us an email ahead of time to let us know. No
+      explanation required. Every absence after your first one i …
+
+[S2] vault/raw/AgenticAISyllabus.pdf
+      page 5 | section: (document start) | raw | keyword #7 (2.25) + vector #5 (0.470)
+      [(document start)]
+      Each assignment is scored out of 10 points using the shared framework above, applied to the specific assignment
+      brief. For Assignments 1–4, the lowest of the four scores is dropped and the remaining three scores are
+      combined equally to make 50% of the final grade. Assignment 5 makes up 30%; attendance makes up 20%.
+      You get a pass on one missed session in the attendance grade, so you are not penalized for missing a single
+      class.
+      Each assignment will have a current Definition of Done in its assignment brief or class deck. That brief may
+      be updated as the course develops; clear …
+
+[S3] vault/raw/AgenticAISyllabus.pdf
+      page 4 | section: What to Submit | raw | keyword #10 (1.84) + vector #6 (0.429)
+      [What to Submit]
+      The instructor may adjust the exact deliverable, required evidence, or emphasis within these categories as
+      the course, tools, and projects evolve. The assignment brief provided for each assignment is the source of
+      truth, and any changes will be communicated clearly in advance.
+      Partial credit is normal and expected.Something half-working with an honest write-up explaining
+      what broke will score better than something polished you cannot explain.That is the whole point
+      of the course.
+      Grading
+      Performance will be graded as follows:
+      Component Weight
+      Attendance 20%
+      Assignments 1–4 (lo …
+
+
+--- and with the language model not required at all: ---
+$ ./wiki search "hedge funds speaker" --no-vectors -k 2
+SEARCH "hedge funds speaker"   scope=all   BM25 keyword only
+2 passage(s) in 0.008s. No answer is generated in this mode.
+
+[S1] vault/raw/Asset Management Syllabus.pdf
+      page 2 | section: (document start) | raw | keyword #1 (15.42)
+      [(document start)]
+      September 24 Venture Capital & Private Equity US pages 133-147
+      September 29 Hedge Funds US pages 125-133
+      October 1 Venture Capital - Speaker David Hartwig – 359 Capital
+      October 6 Hedge Funds – Speaker David Kim – Farallon Capital
+      October 8 Midterm project work session
+      October 13 Technical Analysis RW chapters 5, 6
+      October 15 Fundamental Analysis RW chapters 7, 13, pages 281-285
+      October 20 Rational Models RW 8, 9
+      October 22 Mutual Funds & US chapter 11 and RW pages 377-389
+       Exchange Traded Funds (ETFs)
+      October 27 ETFs – speaker Bart Sikora - BlackRock iShares
+      October 29 Mutua …
+
+[S2] vault/raw/Asset Management Syllabus.pdf
+      page 2 | section: November 3 Behavioral Models RW 10 | raw | keyword #2 (6.74)
+      [November 3 Behavioral Models RW 10]
+      October 27 ETFs – speaker Bart Sikora - BlackRock iShares
+      October 29 Mutual Funds,  Carl Kawaja – Capital Group
+       Fundamental Equities
+      November 3 Behavioral Models RW 10
+       Behavioral mini-presentations
+      November 5 AI and Machine Learning for Art Amador – Quantum Street AI
+       Investments – Speaker
+      November 10 Active and Passive Management US pages 203-207
+         and US chapters 7, 8, 10
+      November 12 Smart Beta / Factor Investing RW pages 258-273
+      November 17 Portfolio Construction US chapter 3 and RW pages 347-370
+      November 19 Rebalancing & US chapter 6
+       Volatility Harv …
+
+
+===============================================================
+CHECK 6 — ask is isolated from chat. The 'December 15' final exam
+          date was asserted in the chat session above and exists in
+          no source. Ask mode must not know it.
+===============================================================
+$ ./wiki ask "When is the Negotiations final exam?" --test-id mode-check-isolation
+
+Q: When is the Negotiations final exam?
+   mode=ask  execution=local  model=gemma3n:e4b
+
+scope: question names only "Negotiations"; evidence limited to that course
+Retrieved passages
+  [S1] vault/raw/Negotiations Syllabus.pdf (p.2, Course Description)  [raw]  keyword #1 (1.94) + vector #2 (0.496)
+  [S2] vault/raw/Negotiations Syllabus.pdf (p.4, (document start))  [raw]  keyword #5 (1.31) + vector #1 (0.526)
+  [S3] vault/raw/Negotiations Syllabus.pdf (p.4, (document start))  [raw]  keyword #4 (1.52) + vector #4 (0.482)
+  [S4] vault/wiki/Courses/Negotiations MBA 252.md (§, Negotiations MBA 252)  [wiki]  keyword #3 (1.55) + vector #3 (0.488)
+  [S5] vault/wiki/Courses/Negotiations MBA 252.md (§, Attendance and Lateness)  [wiki]  keyword #7 (1.18) + vector #11 (0.423)
+  [S6] vault/wiki/Courses/Negotiations MBA 252.md (§, Readings and Materials)  [wiki]  keyword #8 (1.11) + vector #12 (0.420)
+
+Answer
+INSUFFICIENT EVIDENCE: the wiki does not contain the date of the final exam.
+Closest available: Dates: 8/26, 9/2, 9/9, 9/16, 9/23, 9/30, 10/7, 10/14, 10/21, 10/28 [S4].
+
+Citation check [OK] declared insufficient evidence (no citation required)
+  S4 -> vault/wiki/Courses/Negotiations MBA 252.md (§, Negotiations MBA 252)
+retrieval 0.059s | generation 9.939s | 2646 prompt tok, 91 completion tok
+evidence card: evidence/ask/mode-check-isolation-offline-when-is-the-negotiations-final-exam.md
+
+===============================================================
+CHECK 7 — a standalone ask with citations, for contrast.
+===============================================================
+$ ./wiki ask "What are the graded components of Data Mining MBA 247?"
+
+Q: What are the graded components of Data Mining MBA 247?
+   mode=ask  execution=local  model=gemma3n:e4b
+
+scope: question names only "Data Mining"; evidence limited to that course
+Retrieved passages
+  [S1] vault/raw/Data Mining Syllabus.pdf (p.1, (document start))  [raw]  keyword #2 (4.42) + vector #2 (0.603)
+  [S2] vault/raw/Data Mining Syllabus.pdf (p.3, Software)  [raw]  keyword #3 (3.24) + vector #7 (0.471)
+  [S3] vault/raw/Data Mining Syllabus.pdf (p.2, (document start))  [raw]  keyword #6 (1.25) + vector #5 (0.492)
+  [S4] vault/wiki/Courses/Data Mining MBA 247.md (§, Data Mining MBA 247)  [wiki]  keyword #1 (5.87) + vector #1 (0.722)
+  [S5] vault/wiki/Courses/Data Mining MBA 247.md (§, Attendance and Lateness)  [wiki]  vector #6 (0.487)
+  [S6] vault/raw/Data Mining Syllabus.pdf (p.3, Software)  [raw]  keyword #9 (1.10) + vector #3 (0.506)
+
+Answer
+ANswer: The graded components of Data Mining MBA 247 are Class Participation (20%), 4 Individual Concept Checks (20%), 3 Group Workshop Assignments (30%), and a Final Exam (30%) [S4][S5].
+
+Citation check [OK] cited S4, S5 | unused retrieved passages: S1, S2, S3, S6
+  S4 -> vault/wiki/Courses/Data Mining MBA 247.md (§, Data Mining MBA 247)
+  S5 -> vault/wiki/Courses/Data Mining MBA 247.md (§, Attendance and Lateness)
+retrieval 0.158s | generation 8.21s | 2339 prompt tok, 57 completion tok
+evidence card: evidence/ask/mode-check-cited-offline-what-are-the-graded-components-of-data-mining-mb.md
+
+===============================================================
+CHECK 8 — vault integrity
+===============================================================
+$ ./wiki check
+VAULT CHECK  vault
+
+  notes                     19
+  internal [[links]]        102 resolving
+  broken internal links     0
+  unresolvable source links 0
+  machine-style filenames   0
+  filenames over 6 words    0
+  heading/filename mismatches 0
+  notes with no incoming link 0
+
+  reviewed corrections       3 defined, 1 currently applied
+  not landing this run        2 (the model did not produce that wording on the last ingest)
+    - costs? 2 points per day(?: late)?  (vault/raw/Negotiations Syllabus.pdf)
+    - No-class dates?: 10/10  (vault/raw/Negotiations Syllabus.pdf)
+
+  originals preserved       4 file(s) in raw/
+
+PASS
+
+### Network reachability at end of run
+UNREACHABLE — no internet
+
+=== end of mode checks ===
+
+saved: evidence/modes/20260929-212348-mode-checks-offline.txt
+
+================================================================
+ STEP 7 — vault integrity
+================================================================
+$ ./wiki check
+VAULT CHECK  vault
+
+  notes                     19
+  internal [[links]]        102 resolving
+  broken internal links     0
+  unresolvable source links 0
+  machine-style filenames   0
+  filenames over 6 words    0
+  heading/filename mismatches 0
+  notes with no incoming link 0
+
+  reviewed corrections       3 defined, 1 currently applied
+  not landing this run        2 (the model did not produce that wording on the last ingest)
+    - costs? 2 points per day(?: late)?  (vault/raw/Negotiations Syllabus.pdf)
+    - No-class dates?: 10/10  (vault/raw/Negotiations Syllabus.pdf)
+
+  originals preserved       4 file(s) in raw/
+
+PASS
+
+================================================================
+ STILL NO NETWORK AT THE END OF THE RUN
+================================================================
+https://ollama.com -> no connection, curl exit 6 — UNREACHABLE, as expected offline
+https://api.anthropic.com -> no connection, curl exit 6 — UNREACHABLE, as expected offline
+
+=== END OF OFFLINE DEMONSTRATION ===
+Every model call in this transcript was served by gemma3n:e4b on 127.0.0.1.
+No hosted embeddings, no remote search, no cloud fallback.

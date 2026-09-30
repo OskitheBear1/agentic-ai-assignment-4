@@ -1,0 +1,110 @@
+{
+  "mode": "ask",
+  "execution": "local",
+  "model": "gemma3n:e4b",
+  "runtime": "ollama 0.34.4",
+  "embed_model": "embeddinggemma:300m",
+  "question": "How many points is global participation worth in the Negotiations course?",
+  "scope": "all",
+  "top_k": 6,
+  "retrieved": [
+    {
+      "label": "S1",
+      "source_path": "vault/raw/Negotiations Syllabus.pdf",
+      "page": 2,
+      "section": "Course Description",
+      "source_type": "raw",
+      "chunk_id": "0be2bed38d-002-003",
+      "why_retrieved": "keyword #3 (8.23) + vector #2 (0.565)",
+      "text": "[Course Description]\nyou'll practice the skills — communication, preparation, self-awareness — through weekly negotiation exercises.\nCourse Expectations & Ground Rules\nThis is an experiential, demanding course. You will negotiate almost every week, and your engagement directly affects your\npeers' learning, not just your own. A few ground rules keep the exercises useful and the room safe to experiment in:\n• Role instructions are confidential. Do not show or read them to other parties before or during a negotiation.\n• Experiment with different tactics freely, but nothing involving physical intimidation or harassment.\nGrading — 100 Points Total\nComponent When Points\nGlobal participation (attendance, punctuality, engagement, quality of\ndiscussion)\nWeekly 40\nPreparation (worksheets submitted before class) Weekly 20\nFeedback (to negotiation partners) Weekly 20\nIn-class quizzes Sometime! 2-3 20"
+    },
+    {
+      "label": "S2",
+      "source_path": "vault/raw/Negotiations Syllabus.pdf",
+      "page": 3,
+      "section": "(document start)",
+      "source_type": "raw",
+      "chunk_id": "0be2bed38d-003-007",
+      "why_retrieved": "keyword #2 (8.82) + vector #5 (0.476)",
+      "text": "[(document start)]\nSpecifically, for circumstances you couldn't reasonably have predicted 24 hours out, like sudden illness or injury, a family\nemergency, or bereavement, we understand that you could not give advance warning. You should still notify us as soon as\nyou're able, even if that's after the fact. A brief email is enough to invoke this, formal documentation is only needed if the\nabsence extends beyond a single class.\nPunctuality\n• Missing more than 30 minutes of a class (arriving late or leaving early): –1 point.\n• Missing more than 30 minutes of a class, without advance notice: –2 points.\nGlobal participation score (engagement)\n• We are grading your participation and engagement in class. Some people speak less than others, and that's OK. But if\nyou're checked ou or clearly not paying attention, we notice that and take that as part of the global participation score."
+    },
+    {
+      "label": "S3",
+      "source_path": "vault/raw/Negotiations Syllabus.pdf",
+      "page": 2,
+      "section": "Course Description",
+      "source_type": "raw",
+      "chunk_id": "0be2bed38d-002-004",
+      "why_retrieved": "keyword #5 (6.76) + vector #3 (0.556)",
+      "text": "[Course Description]\nWeekly 40\nPreparation (worksheets submitted before class) Weekly 20\nFeedback (to negotiation partners) Weekly 20\nIn-class quizzes Sometime! 2-3 20\nPress team assignment Once in the first 5 weeks (up to 3 bonus)\nParticipation (40 points)\nParticipation means showing up, on time and prepared, and contributing to discussion. Your attendance record and the quality\nof your comments are both assessed — see the Policies section below for how absences and lateness affect this score.\nPreparation (20 points)\nSubmit the preparation worksheet for each negotiation exercise before class starts. Late preparation sheets are not accepted\n(see Late Assignment Policy); missing one costs 2 points.\nFeedback (20 points)\n• Give your negotiation partner at least one positive and one constructive comment immediately after each exercise."
+    },
+    {
+      "label": "S4",
+      "source_path": "vault/wiki/Courses/Negotiations MBA 252.md",
+      "page": null,
+      "section": "Grading",
+      "source_type": "wiki",
+      "chunk_id": "0a0434975a-000-002",
+      "why_retrieved": "keyword #1 (10.90) + vector #1 (0.594)",
+      "text": "[Grading]\n- Press team assignment due within the first 5 weeks, with up to 3 bonus points.\n- Pop quiz to test fundamental negotiation concepts.\nGrading\n- Global participation (attendance, punctuality, engagement, discussion quality): 40 points.\n- Preparation (worksheets submitted before class): 20 points. Late preparation sheets are not accepted; missing one costs 2 points.\n- Feedback (to negotiation partners): 20 points. Worth ~2 points per week.\n- In-class quizzes: 20 points (some time).\n- Press team assignment: Up to 3 bonus points.\nAttendance and Lateness\n- Notify the professor by email at least 24 hours in advance for missed classes.\n- Missed a class with 24+ hour notice: -2 points.\n- Missed a class without 24-hour notice: -3 points.\n- First missed class is free if the professor is notified in advance.\n- Missing more than 30 minutes of class (late or early): -1 point."
+    },
+    {
+      "label": "S5",
+      "source_path": "vault/raw/AgenticAISyllabus.pdf",
+      "page": 5,
+      "section": "(document start)",
+      "source_type": "raw",
+      "chunk_id": "4b5a9caae6-005-015",
+      "why_retrieved": "keyword #20 (2.34) + vector #8 (0.428)",
+      "text": "[(document start)]\nEach assignment is scored out of 10 points using the shared framework above, applied to the specific assignment\nbrief. For Assignments 1–4, the lowest of the four scores is dropped and the remaining three scores are\ncombined equally to make 50% of the final grade. Assignment 5 makes up 30%; attendance makes up 20%.\nYou get a pass on one missed session in the attendance grade, so you are not penalized for missing a single\nclass.\nEach assignment will have a current Definition of Done in its assignment brief or class deck. That brief may\nbe updated as the course develops; clearly announced updates supersede this syllabus overview. The shared\ngrading categories and the assignment’s overall weight remain the consistent structure.\nGrade Dispute Policy\nIf you would like an assignment re-graded, submit a written petition within 72 hours of receiving the grade."
+    },
+    {
+      "label": "S6",
+      "source_path": "vault/wiki/Courses/Negotiations MBA 252.md",
+      "page": null,
+      "section": "Attendance and Lateness",
+      "source_type": "wiki",
+      "chunk_id": "0a0434975a-000-003",
+      "why_retrieved": "keyword #7 (4.76) + vector #7 (0.435)",
+      "text": "[Attendance and Lateness]\n- First missed class is free if the professor is notified in advance.\n- Missing more than 30 minutes of class (late or early): -1 point.\n- Missing more than 30 minutes of class without notice: -2 points.\nAssignments and Deadlines\n- Preparation worksheets are due at the start of class; no late submissions.\n- Late assignments are penalized 1 point per day late.\n- Feedback to negotiation partners is due by Friday midnight each week via email.\n- Press team assignment involves filming and analyzing other students' negotiations.\n- Preparation worksheets are never accepted late."
+    }
+  ],
+  "answer": "**ANSWER:** Global participation is worth 40 points in the Negotiaions course [S1][S3][S4]. This includes attendance, punctuality, engagement, and the quality of discussion [S3][S4].",
+  "citations": {
+    "cited": [
+      "S1",
+      "S3",
+      "S4"
+    ],
+    "unsupported": [],
+    "unused": [
+      "S2",
+      "S5",
+      "S6"
+    ],
+    "declared_insufficient": false,
+    "uncited_answer": false,
+    "contract_violations": [],
+    "spelling_flags": [
+      "Negotiaions"
+    ],
+    "machine_check": "cited S1, S3, S4 | unused retrieved passages: S2, S5, S6 | spelling flags (in the answer, absent from every cited passage): Negotiaions",
+    "passes_machine_check": true
+  },
+  "timing_seconds": {
+    "retrieval": 0.469,
+    "generation": 10.762,
+    "total": 11.277
+  },
+  "tokens": {
+    "prompt": 2464,
+    "completion": 49
+  },
+  "model_options": {
+    "temperature": 0.1,
+    "top_p": 0.9,
+    "num_ctx": 4096,
+    "num_predict": 400
+  },
+  "test_id": "test-1"
+}

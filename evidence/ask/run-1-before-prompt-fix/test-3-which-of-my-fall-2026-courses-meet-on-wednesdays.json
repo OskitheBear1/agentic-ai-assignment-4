@@ -1,0 +1,106 @@
+{
+  "mode": "ask",
+  "execution": "local",
+  "model": "gemma3n:e4b",
+  "runtime": "ollama 0.34.4",
+  "embed_model": "embeddinggemma:300m",
+  "question": "Which of my Fall 2026 courses meet on Wednesdays, and at what times?",
+  "scope": "all",
+  "top_k": 6,
+  "retrieved": [
+    {
+      "label": "S1",
+      "source_path": "vault/raw/Negotiations Syllabus.pdf",
+      "page": 1,
+      "section": "(document start)",
+      "source_type": "raw",
+      "chunk_id": "0be2bed38d-001-001",
+      "why_retrieved": "keyword #1 (7.84) + vector #7 (0.450)",
+      "text": "[(document start)]\nHaas School of Business — University of California, Berkeley\nNegotiations and Conflict Resolution\nMBA 252 — Fall 2026\nProfessor: Solène Delecourt  (negotiationsolene@gmail.com)\nGSI: Oranda Hou\nGSR: Irina Liu\nDay: Wednesdays\nTime: MBA252.1 — 8:00–11:00 AM   |   MBA252.2 — 2:00–5:00 PM\nLocation: C220\nDates: 8/26, 9/2, 9/9, 9/16, 9/23, 9/30, 10/7, 10/14, 10/21, 10/28\nThis is a living document, updated periodically based on your feedback"
+    },
+    {
+      "label": "S2",
+      "source_path": "vault/raw/AgenticAISyllabus.pdf",
+      "page": 1,
+      "section": "MBA 290T: Fundamental of Agentic AI",
+      "source_type": "raw",
+      "chunk_id": "4b5a9caae6-001-001",
+      "why_retrieved": "keyword #2 (5.07) + vector #9 (0.447)",
+      "text": "[MBA 290T: Fundamental of Agentic AI]\nMBA 290T: Fundamental of Agentic AI\nHaas School of Business,\nUC–Berkeley Fall 2026\nCo-Instructors\nAlexandre Mas\nEmail: amas@berkeley.edu\nOffice Hours:By appointment only\nPepe Alonso\nEmail: pepe@berkeley.edu\nOffice Hours:By appointment only\nClass Schedule\nLectures:Tuesdays 4:00 – 6:00 pm PT in N570\nFirst class:Tuesday, August 25, 2026\nLast class:Tuesday, October 6, 2026\nFinal assignment (Assignment 5) due:Tuesday, October 13, 2026\nSeven Tuesday sessions, beginning with Class 1 on 8/25 and ending with Class 7 on 10/6.\nThere isno final examand no final presentation. The course is assessed entirely through attendance and\nfive graded assignments.\nCourse Objective\nFundamental of Agentic AI is not a survey course about AI, and it is not a prompt-engineering workshop. In\nseven sessions we go from “what is a variable” to building and evaluating a tool-using AI agent — covering"
+    },
+    {
+      "label": "S3",
+      "source_path": "vault/raw/Data Mining Syllabus.pdf",
+      "page": 1,
+      "section": "Instructor Luyi Yang",
+      "source_type": "raw",
+      "chunk_id": "fc1ba59e46-001-003",
+      "why_retrieved": "keyword #13 (2.24) + vector #6 (0.491)",
+      "text": "[Instructor Luyi Yang]\nClass Meetings\nDay Dates Time Room\nWednesday Aug 26 - Oct 28, 2026 (10 weeks) 6:00pm-9:30pm PT Chou Hall N300\nInstructor Luyi Yang\nluyiyang@haas.berkeley.edu\nOffice: F557 (Email for in-person appointments)\nAssistant Ziyi Liu zyliu2023@berkeley.edu\nPrerequisite   200S Data and Decisions\nOptional Textbook\nSelected chapters of Business Analytics (4th edition) by Camm et al.\nPublisher: Cengage Learning"
+    },
+    {
+      "label": "S4",
+      "source_path": "vault/wiki/Courses/Asset Management MBA 233.md",
+      "page": null,
+      "section": "Grading",
+      "source_type": "wiki",
+      "chunk_id": "18878f29f9-000-002",
+      "why_retrieved": "keyword #5 (4.67) + vector #1 (0.519)",
+      "text": "[Grading]\n- Instructor Office Location: F502N\n- Instructor Office Hours: by appointment\n- Course Dates: Fall 2026\nGrading\n- Contribution to class discussion: 25%\n- Midterm project: 25%\n- Final project: 30%\n- Assignments: 10%\n- Questions: 10%\n- More than three absences will adversely affect the class contribution grade.\nAttendance and Lateness\n- More than three absences will adversely affect the class contribution grade.\nAssignments and Deadlines\n- Assignments will be completed independently.\n- Submissions should be the result of independent work.\n- Specific due dates for assignments are not listed."
+    },
+    {
+      "label": "S5",
+      "source_path": "vault/raw/Asset Management Syllabus.pdf",
+      "page": 1,
+      "section": "(document start)",
+      "source_type": "raw",
+      "chunk_id": "3f8d5907a6-001-001",
+      "why_retrieved": "keyword #8 (3.87) + vector #12 (0.429)",
+      "text": "[(document start)]\nAsset Management\nMBA 233\nFall 2026\nInstructor:  Sam Olesky\nEmail:  olesky@haas.berkeley.edu\nOffice Hours:  by appointment\nOffice Location:  F502N\nClass Hours:   Tuesdays and Thursdays 2:00 – 3:30\nClass Location: Cheit Hall, C220\nPrivacy and Recording Notice\nCourse Description: The course will cover a broad range of investments and structuring\ninvestment portfolios. We will consider investments, security selection and investment\nportfolios from the perspective of individual and institutional investors. The course is\ndesigned to develop investing knowledge empirically and through academic theory.\nRequired books: A Random Walk Down Wall Street, Burton G. Malkiel, 2023 edition, W.\nW. Norton & Company, Inc. (RW)\nUnconventional Success, David F. Swensen, 2005, Free Press (US)\nGrading: Contribution to class discussion will account for 25% of the grade. The midterm"
+    },
+    {
+      "label": "S6",
+      "source_path": "vault/raw/Data Mining Syllabus.pdf",
+      "page": 1,
+      "section": "(document start)",
+      "source_type": "raw",
+      "chunk_id": "fc1ba59e46-001-002",
+      "why_retrieved": "keyword #16 (1.94) + vector #5 (0.494)",
+      "text": "[(document start)]\nbusiness decisions in a variety of real-world business applications, including (but not limited to)\nmarketing, finance, and operations. Descriptive models provide insights into “What did happen?” and\npredictive models, “What could happen?” Topics to be introduced include:\n• Exploratory data analysis: frequency distributions, cross-tabulation\n• Descriptive data mining: k-means clustering, association rules, text mining\n• Predictive data mining: binary classification, logistic regression, k-nearest-neighbors,\nclassification trees, ensemble methods, Responsible AI\nClass Meetings\nDay Dates Time Room\nWednesday Aug 26 - Oct 28, 2026 (10 weeks) 6:00pm-9:30pm PT Chou Hall N300"
+    }
+  ],
+  "answer": "MBA 252 meets on Wednesdays from 8:00–11:00 AM or 2:00–5:00 PM [S1].",
+  "citations": {
+    "cited": [
+      "S1"
+    ],
+    "unsupported": [],
+    "unused": [
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6"
+    ],
+    "declared_insufficient": false,
+    "uncited_answer": false,
+    "machine_check": "cited S1 | unused retrieved passages: S2, S3, S4, S5, S6",
+    "passes_machine_check": true
+  },
+  "timing_seconds": {
+    "retrieval": 0.12,
+    "generation": 10.187,
+    "total": 10.361
+  },
+  "tokens": {
+    "prompt": 2062,
+    "completion": 38
+  },
+  "model_options": {
+    "temperature": 0.1,
+    "top_p": 0.9,
+    "num_ctx": 4096,
+    "num_predict": 400
+  },
+  "test_id": "test-3"
+}

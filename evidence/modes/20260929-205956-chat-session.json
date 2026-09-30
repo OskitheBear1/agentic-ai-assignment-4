@@ -1,0 +1,99 @@
+{
+  "execution": "local",
+  "saved_at": "2026-09-29T20:59:56.598277",
+  "turns": [
+    {
+      "kind": "chat",
+      "message": "what can you help me with?",
+      "retrieved": false,
+      "retrieval_reason": "rule: capability/meta/follow-up turn, answered from persona and conversation",
+      "hits": [],
+      "reply": "I am your study-planning assistant for your Fall 2026 MBA courses at Berkeley Haas. I can help you brainstorm, draft, outline, plan, compare options, and revise your plans. \n\nFor example, if you need a suggestion on what to focus on next, I can offer one. Just let me know what you're working on or what you'd like to plan. I can also look up information in your course syllabi if you need to. \n\nWhat's on your mind?",
+      "seconds": 5.676,
+      "model": "gemma3n:e4b",
+      "execution": "local",
+      "invented_citations": []
+    },
+    {
+      "kind": "chat",
+      "message": "what can we do?",
+      "retrieved": false,
+      "retrieval_reason": "rule: capability/meta/follow-up turn, answered from persona and conversation",
+      "hits": [],
+      "reply": "I can help you organize your study schedule for your Fall 2026 MBA courses at Berkeley Haas. I can suggest what to focus on, help you outline assignments, compare different planning approaches, and revise existing plans. \n\nTo start, what are you currently working on or what would you like to plan for?",
+      "seconds": 3.129,
+      "model": "gemma3n:e4b",
+      "execution": "local",
+      "invented_citations": []
+    },
+    {
+      "kind": "chat",
+      "message": "Draft me a 4-bullet plan for keeping on top of all four courses this term.",
+      "retrieved": false,
+      "retrieval_reason": "model router: CHAT (3.16s)",
+      "hits": [],
+      "reply": "Suggestion: Prioritize one key task per course each week. This ensures consistent progress across your MBA workload.\n\nHere's a possible 4-bullet plan:\n\n*   **Weekly Course Focus:** Dedicate a specific block of time each week to a single task for each of your four courses.\n*   **Syllabi Review:** Begin each week by briefly reviewing the upcoming week's syllabus for all courses to identify deadlines and key topics.\n*   **Time Blocking:** Schedule dedicated study blocks in your calendar, allocating time for the weekly focus task in each course.\n*   **Regular Check-ins:** At the end of each week, review your progress and adjust the following week's focus as needed.",
+      "seconds": 14.582,
+      "model": "gemma3n:e4b",
+      "execution": "local",
+      "invented_citations": []
+    },
+    {
+      "kind": "chat",
+      "message": "make that shorter",
+      "retrieved": false,
+      "retrieval_reason": "rule: capability/meta/follow-up turn, answered from persona and conversation",
+      "hits": [],
+      "reply": "Suggestion: Focus on identifying the most important upcoming deadlines for each course each week. This provides a clear direction for your study time.\n\nHere's a shorter 4-bullet plan:\n\n* **Weekly Deadline Focus:** Identify the 1-2 most important deadlines for each course each week.\n* **Syllabi Scan:** Briefly review the upcoming week's syllabus for all courses.\n* **Time Allocation:** Schedule study time to address the identified deadlines.\n* **Weekly Review:** At the end of the week, check your progress against the deadlines.",
+      "seconds": 4.72,
+      "model": "gemma3n:e4b",
+      "execution": "local",
+      "invented_citations": []
+    },
+    {
+      "kind": "chat",
+      "message": "Remember that my Negotiations final exam is on December 15 at 9am.",
+      "retrieved": false,
+      "retrieval_reason": "rule: user is asserting a fact, not asking for one",
+      "hits": [],
+      "reply": "Understood. I have noted that your Negotiations final exam is on December 15th at 9am. This will be a key date to factor into your weekly deadline focus.",
+      "seconds": 1.939,
+      "model": "gemma3n:e4b",
+      "execution": "local",
+      "invented_citations": []
+    },
+    {
+      "kind": "chat",
+      "message": "How many points is participation worth in Negotiations?",
+      "retrieved": true,
+      "retrieval_reason": "rule: asks for a recorded syllabus fact",
+      "hits": [
+        {
+          "label": "S1",
+          "locator": "vault/raw/Negotiations Syllabus.pdf (p.2, Course Description)",
+          "text": "[Course Description]\nFeedback (20 points)\n• Give your negotiation partner at least one positive and one constructive comment immediately after each exercise.\n• Email written feedback to your partner by Friday midnight each week, cc'ing the class email with “[Feedback\nSubmission]” in the subject line.\n• Worth ~2 points per week, including Week 10.\nPop quiz (20 points)\n• Pop quiz in class to test your basic knowledge of fundamental negotiation concepts\nOptional: Press team assignment (up to 3 bonus points)\n• Make a video reel of the highlights of someone else's negotiation"
+        },
+        {
+          "label": "S2",
+          "locator": "vault/raw/Negotiations Syllabus.pdf (p.2, Course Description)",
+          "text": "[Course Description]\nWeekly 40\nPreparation (worksheets submitted before class) Weekly 20\nFeedback (to negotiation partners) Weekly 20\nIn-class quizzes Sometime! 2-3 20\nPress team assignment Once in the first 5 weeks (up to 3 bonus)\nParticipation (40 points)\nParticipation means showing up, on time and prepared, and contributing to discussion. Your attendance record and the quality\nof your comments are both assessed — see the Policies section below for how absences and lateness affect this score.\nPreparation (20 points)\nSubmit the preparation worksheet for each negotiation exercise before class starts. Late preparation sheets are not accepted\n(see Late Assignment Policy); missing one costs 2 points.\nFeedback (20 points)\n• Give your negotiation partner at least one positive and one constructive comment immediately after each exercise."
+        },
+        {
+          "label": "S3",
+          "locator": "vault/raw/Negotiations Syllabus.pdf (p.2, Course Description)",
+          "text": "[Course Description]\nyou'll practice the skills — communication, preparation, self-awareness — through weekly negotiation exercises.\nCourse Expectations & Ground Rules\nThis is an experiential, demanding course. You will negotiate almost every week, and your engagement directly affects your\npeers' learning, not just your own. A few ground rules keep the exercises useful and the room safe to experiment in:\n• Role instructions are confidential. Do not show or read them to other parties before or during a negotiation.\n• Experiment with different tactics freely, but nothing involving physical intimidation or harassment.\nGrading — 100 Points Total\nComponent When Points\nGlobal participation (attendance, punctuality, engagement, quality of\ndiscussion)\nWeekly 40\nPreparation (worksheets submitted before class) Weekly 20\nFeedback (to negotiation partners) Weekly 20\nIn-class quizzes Sometime! 2-3 20"
+        },
+        {
+          "label": "S4",
+          "locator": "vault/wiki/Courses/Negotiations MBA 252.md (§, Grading)",
+          "text": "[Grading]\n- Press team assignment due within the first 5 weeks, with up to 3 bonus points.\n- Pop quiz to test fundamental negotiation concepts.\nGrading\n- Global participation (attendance, punctuality, engagement, discussion quality): 40 points.\n- Preparation (worksheets submitted before class): 20 points. Late preparation sheets are not accepted; missing one costs 2 points.\n- Feedback (to negotiation partners): 20 points. Worth ~2 points per week.\n- In-class quizzes: 20 points (some time).\n- Press team assignment: Up to 3 bonus points.\nAttendance and Lateness\n- Notify the professor by email at least 24 hours in advance for missed classes.\n- Missed a class with 24+ hour notice: -2 points.\n- Missed a class without 24-hour notice: -3 points.\n- First missed class is free if the professor is notified in advance.\n- Missing more than 30 minutes of class (late or early): -1 point."
+        }
+      ],
+      "reply": "Participation is worth 40 points in Negotiaions [S4].",
+      "seconds": 3.25,
+      "model": "gemma3n:e4b",
+      "execution": "local",
+      "invented_citations": []
+    }
+  ]
+}

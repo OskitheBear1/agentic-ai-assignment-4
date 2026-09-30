@@ -1,0 +1,278 @@
+===============================================================
+ MODE BOUNDARY CHECKS — offline
+ Tue Sep 29 21:23:48 PDT 2026
+===============================================================
+
+### Network reachability at start of run
+$ curl -s -m 5 https://ollama.com
+UNREACHABLE — no internet, which is what the offline run must show
+$ ping -c 1 -W 2000 1.1.1.1
+
+--- 1.1.1.1 ping statistics ---
+1 packets transmitted, 0 packets received, 100.0% packet loss
+
+### Runtime and model identity
+$ ./wiki doctor
+RUNTIME
+  ollama              reachable at http://127.0.0.1:11434 (v0.34.4)
+  generation model    gemma3n:e4b  —  installed
+  embedding model     embeddinggemma:300m  —  installed
+
+INDEX
+  passages            75 (63 raw, 12 wiki)
+  vectors             75
+  chunks file         .wiki_index/chunks.jsonl
+
+VAULT
+  original sources    4 in vault/raw
+  wiki notes          18 in vault/wiki
+  index page          present
+  persona.md          present
+  wiki-instructions.md present
+  ingest-instructions.md present
+
+DISK
+  free space          403 GB
+
+===============================================================
+CHECK 1 — chat: capability questions must not search the notes,
+          must not cite, and must not refuse for lack of evidence.
+CHECK 2 — chat follow-up: 'make that shorter' must use the
+          conversation, not a fresh lookup.
+CHECK 3 — chat: a fact the user asserts is conversation, not evidence.
+CHECK 4 — chat: a real syllabus question does trigger retrieval + citation.
+===============================================================
+
+Archivist — local study assistant for your Fall 2026 Haas courses
+model: gemma3n:e4b (local)   wiki: 18 notes, 75 indexed passages
+
+This is chat mode: conversational, uses the current conversation, and looks up
+your notes only when a turn needs a recorded fact.
+  For a checked factual answer   ->  /ask <question>   (or exit and run `./wiki ask "..."`)
+  To see raw source passages     ->  /search <terms>
+  Commands                       ->  /help   /save   /reset   /exit
+
+you> [retrieval OFF — rule: capability/meta/follow-up turn, answered from persona and conversation]
+
+I can assist with planning for your Fall 2026 MBA coursework at Berkeley Haas. I can brainstorm, draft, outline, and compare options related to your classes. For example, if you'd like a suggestion on how to structure your study schedule, I can offer one. 
+
+Just let me know what you'd like to work on.
+(4.738s, gemma3n:e4b, local)
+
+you> [retrieval OFF — rule: capability/meta/follow-up turn, answered from persona and conversation]
+
+We can discuss your study plan for Fall 2026. I can help you brainstorm schedules, compare different approaches to managing your coursework, or outline a plan for a specific class. 
+
+For instance, if you're unsure how to allocate time between your MBA 290T, MBA 233, MBA 247, and MBA 252 courses, I can offer a suggestion. Just tell me what you'd like to focus on.
+(4.063s, gemma3n:e4b, local)
+
+you> [retrieval OFF — model router: CHAT (2.95s)]
+
+Suggestion: Prioritize one course per week. This ensures focused effort and prevents feeling overwhelmed by the workload.
+
+Here's a 4-bullet plan to help you manage all four courses this term:
+
+*   **Weekly Focus:** Each week, dedicate the majority of your study time to a single course. This allows for deeper engagement with the material.
+*   **Time Blocking:** Schedule specific blocks of time in your calendar for each course, treating these like important meetings.
+*   **Review Schedule:** At the end of each week, review your progress in each course and adjust your schedule for the following week as needed.
+*   **Proactive Planning:** Before each class, spend a few minutes reviewing the syllabus and any assigned readings to prepare for the material.
+(13.432s, gemma3n:e4b, local)
+
+you> [retrieval OFF — rule: capability/meta/follow-up turn, answered from persona and conversation]
+
+Suggestion: Focus on weekly prioritization and time blocking. This provides a structured approach to managing your coursework.
+
+Here's a shorter 4-bullet plan:
+
+* **Weekly Focus:** Dedicate most study time to one course per week.
+* **Time Blocks:** Schedule specific study times for each course.
+* **Weekly Review:** Review progress and adjust the schedule each week.
+* **Pre-Class Prep:** Briefly review syllabus and readings before each class.
+(3.916s, gemma3n:e4b, local)
+
+you> [retrieval OFF — rule: user is asserting a fact, not asking for one]
+
+Understood. I have noted that your Negotiations final exam is on December 15th at 9am.
+(1.424s, gemma3n:e4b, local)
+
+you> [retrieval ON — rule: asks for a recorded syllabus fact]
+  [S1] vault/raw/Negotiations Syllabus.pdf (p.2, Course Description)
+  [S2] vault/raw/Negotiations Syllabus.pdf (p.2, Course Description)
+  [S3] vault/raw/Negotiations Syllabus.pdf (p.2, Course Description)
+  [S4] vault/wiki/Courses/Negotiations MBA 252.md (§, Grading)
+
+Participation is worth 40 points in Negotiaions [S4].
+(3.297s, gemma3n:e4b, local)
+
+you> bye.
+[transcript saved to evidence/modes/20260929-212427-chat-session.md]
+
+===============================================================
+CHECK 5 — search: original passages and paths, NO generated answer.
+===============================================================
+$ ./wiki search "attendance absences deductions" -k 3
+SEARCH "attendance absences deductions"   scope=all   hybrid BM25+vector
+3 passage(s) in 0.084s. No answer is generated in this mode.
+
+[S1] vault/raw/Negotiations Syllabus.pdf
+      page 3 | section: (document start) | raw | keyword #1 (9.10) + vector #1 (0.538)
+      [(document start)]
+      Policies
+      Attendance & Absences
+      ● Notice requirement: Always notify the professor by email as soon as you know you'll miss a class — ideally at
+      least 24 hours in advance.
+      ● Point deductions (out of 100):
+      ● Missed a class, gave at least 24 hours' notice: –2 points
+      ● Missed a class, did not give 24 hours' notice: –3 points (this replaces the 2-point deduction — it is not an
+      additional penalty on top of it)
+      Free pass: Your first missed class each term costs nothing IF you send us an email ahead of time to let us know. No
+      explanation required. Every absence after your first one i …
+
+[S2] vault/raw/AgenticAISyllabus.pdf
+      page 5 | section: (document start) | raw | keyword #7 (2.25) + vector #5 (0.470)
+      [(document start)]
+      Each assignment is scored out of 10 points using the shared framework above, applied to the specific assignment
+      brief. For Assignments 1–4, the lowest of the four scores is dropped and the remaining three scores are
+      combined equally to make 50% of the final grade. Assignment 5 makes up 30%; attendance makes up 20%.
+      You get a pass on one missed session in the attendance grade, so you are not penalized for missing a single
+      class.
+      Each assignment will have a current Definition of Done in its assignment brief or class deck. That brief may
+      be updated as the course develops; clear …
+
+[S3] vault/raw/AgenticAISyllabus.pdf
+      page 4 | section: What to Submit | raw | keyword #10 (1.84) + vector #6 (0.429)
+      [What to Submit]
+      The instructor may adjust the exact deliverable, required evidence, or emphasis within these categories as
+      the course, tools, and projects evolve. The assignment brief provided for each assignment is the source of
+      truth, and any changes will be communicated clearly in advance.
+      Partial credit is normal and expected.Something half-working with an honest write-up explaining
+      what broke will score better than something polished you cannot explain.That is the whole point
+      of the course.
+      Grading
+      Performance will be graded as follows:
+      Component Weight
+      Attendance 20%
+      Assignments 1–4 (lo …
+
+
+--- and with the language model not required at all: ---
+$ ./wiki search "hedge funds speaker" --no-vectors -k 2
+SEARCH "hedge funds speaker"   scope=all   BM25 keyword only
+2 passage(s) in 0.008s. No answer is generated in this mode.
+
+[S1] vault/raw/Asset Management Syllabus.pdf
+      page 2 | section: (document start) | raw | keyword #1 (15.42)
+      [(document start)]
+      September 24 Venture Capital & Private Equity US pages 133-147
+      September 29 Hedge Funds US pages 125-133
+      October 1 Venture Capital - Speaker David Hartwig – 359 Capital
+      October 6 Hedge Funds – Speaker David Kim – Farallon Capital
+      October 8 Midterm project work session
+      October 13 Technical Analysis RW chapters 5, 6
+      October 15 Fundamental Analysis RW chapters 7, 13, pages 281-285
+      October 20 Rational Models RW 8, 9
+      October 22 Mutual Funds & US chapter 11 and RW pages 377-389
+       Exchange Traded Funds (ETFs)
+      October 27 ETFs – speaker Bart Sikora - BlackRock iShares
+      October 29 Mutua …
+
+[S2] vault/raw/Asset Management Syllabus.pdf
+      page 2 | section: November 3 Behavioral Models RW 10 | raw | keyword #2 (6.74)
+      [November 3 Behavioral Models RW 10]
+      October 27 ETFs – speaker Bart Sikora - BlackRock iShares
+      October 29 Mutual Funds,  Carl Kawaja – Capital Group
+       Fundamental Equities
+      November 3 Behavioral Models RW 10
+       Behavioral mini-presentations
+      November 5 AI and Machine Learning for Art Amador – Quantum Street AI
+       Investments – Speaker
+      November 10 Active and Passive Management US pages 203-207
+         and US chapters 7, 8, 10
+      November 12 Smart Beta / Factor Investing RW pages 258-273
+      November 17 Portfolio Construction US chapter 3 and RW pages 347-370
+      November 19 Rebalancing & US chapter 6
+       Volatility Harv …
+
+
+===============================================================
+CHECK 6 — ask is isolated from chat. The 'December 15' final exam
+          date was asserted in the chat session above and exists in
+          no source. Ask mode must not know it.
+===============================================================
+$ ./wiki ask "When is the Negotiations final exam?" --test-id mode-check-isolation
+
+Q: When is the Negotiations final exam?
+   mode=ask  execution=local  model=gemma3n:e4b
+
+scope: question names only "Negotiations"; evidence limited to that course
+Retrieved passages
+  [S1] vault/raw/Negotiations Syllabus.pdf (p.2, Course Description)  [raw]  keyword #1 (1.94) + vector #2 (0.496)
+  [S2] vault/raw/Negotiations Syllabus.pdf (p.4, (document start))  [raw]  keyword #5 (1.31) + vector #1 (0.526)
+  [S3] vault/raw/Negotiations Syllabus.pdf (p.4, (document start))  [raw]  keyword #4 (1.52) + vector #4 (0.482)
+  [S4] vault/wiki/Courses/Negotiations MBA 252.md (§, Negotiations MBA 252)  [wiki]  keyword #3 (1.55) + vector #3 (0.488)
+  [S5] vault/wiki/Courses/Negotiations MBA 252.md (§, Attendance and Lateness)  [wiki]  keyword #7 (1.18) + vector #11 (0.423)
+  [S6] vault/wiki/Courses/Negotiations MBA 252.md (§, Readings and Materials)  [wiki]  keyword #8 (1.11) + vector #12 (0.420)
+
+Answer
+INSUFFICIENT EVIDENCE: the wiki does not contain the date of the final exam.
+Closest available: Dates: 8/26, 9/2, 9/9, 9/16, 9/23, 9/30, 10/7, 10/14, 10/21, 10/28 [S4].
+
+Citation check [OK] declared insufficient evidence (no citation required)
+  S4 -> vault/wiki/Courses/Negotiations MBA 252.md (§, Negotiations MBA 252)
+retrieval 0.059s | generation 9.939s | 2646 prompt tok, 91 completion tok
+evidence card: evidence/ask/mode-check-isolation-offline-when-is-the-negotiations-final-exam.md
+
+===============================================================
+CHECK 7 — a standalone ask with citations, for contrast.
+===============================================================
+$ ./wiki ask "What are the graded components of Data Mining MBA 247?"
+
+Q: What are the graded components of Data Mining MBA 247?
+   mode=ask  execution=local  model=gemma3n:e4b
+
+scope: question names only "Data Mining"; evidence limited to that course
+Retrieved passages
+  [S1] vault/raw/Data Mining Syllabus.pdf (p.1, (document start))  [raw]  keyword #2 (4.42) + vector #2 (0.603)
+  [S2] vault/raw/Data Mining Syllabus.pdf (p.3, Software)  [raw]  keyword #3 (3.24) + vector #7 (0.471)
+  [S3] vault/raw/Data Mining Syllabus.pdf (p.2, (document start))  [raw]  keyword #6 (1.25) + vector #5 (0.492)
+  [S4] vault/wiki/Courses/Data Mining MBA 247.md (§, Data Mining MBA 247)  [wiki]  keyword #1 (5.87) + vector #1 (0.722)
+  [S5] vault/wiki/Courses/Data Mining MBA 247.md (§, Attendance and Lateness)  [wiki]  vector #6 (0.487)
+  [S6] vault/raw/Data Mining Syllabus.pdf (p.3, Software)  [raw]  keyword #9 (1.10) + vector #3 (0.506)
+
+Answer
+ANswer: The graded components of Data Mining MBA 247 are Class Participation (20%), 4 Individual Concept Checks (20%), 3 Group Workshop Assignments (30%), and a Final Exam (30%) [S4][S5].
+
+Citation check [OK] cited S4, S5 | unused retrieved passages: S1, S2, S3, S6
+  S4 -> vault/wiki/Courses/Data Mining MBA 247.md (§, Data Mining MBA 247)
+  S5 -> vault/wiki/Courses/Data Mining MBA 247.md (§, Attendance and Lateness)
+retrieval 0.158s | generation 8.21s | 2339 prompt tok, 57 completion tok
+evidence card: evidence/ask/mode-check-cited-offline-what-are-the-graded-components-of-data-mining-mb.md
+
+===============================================================
+CHECK 8 — vault integrity
+===============================================================
+$ ./wiki check
+VAULT CHECK  vault
+
+  notes                     19
+  internal [[links]]        102 resolving
+  broken internal links     0
+  unresolvable source links 0
+  machine-style filenames   0
+  filenames over 6 words    0
+  heading/filename mismatches 0
+  notes with no incoming link 0
+
+  reviewed corrections       3 defined, 1 currently applied
+  not landing this run        2 (the model did not produce that wording on the last ingest)
+    - costs? 2 points per day(?: late)?  (vault/raw/Negotiations Syllabus.pdf)
+    - No-class dates?: 10/10  (vault/raw/Negotiations Syllabus.pdf)
+
+  originals preserved       4 file(s) in raw/
+
+PASS
+
+### Network reachability at end of run
+UNREACHABLE — no internet
+
+=== end of mode checks ===

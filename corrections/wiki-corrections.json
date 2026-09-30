@@ -1,0 +1,30 @@
+{
+  "_purpose": "Human corrections applied to generated notes AFTER the model writes them, so a re-ingest cannot silently restore a misreading. Kept outside vault/ so it is never retrieved as evidence. Each entry names the source it belongs to, what the source actually says, and an exact find/replace against the rendered note.",
+  "_how_to_add": "Run ./wiki ingest, read the note against the original in vault/raw/, and add an entry with `find` (literal) or `find_regex` (case-insensitive regex) plus `replace` and `reason`. Prefer `find_regex` for anything the model rewords between runs -- it varies its phrasing, so a literal string silently stops matching. ./wiki check reports entries that no longer apply to any note, so a correction cannot rot unnoticed.",
+  "corrections": [
+    {
+      "source_id": "0be2bed38d",
+      "source": "vault/raw/Negotiations Syllabus.pdf",
+      "added": "2026-09-29",
+      "reason": "The Negotiations syllabus lists no required books. Appendix B heads its book list 'Recommended Reading', and the weekly Readings column assigns chapters rather than requiring a purchase. The model labels these 'Required Readings' on most runs, which would mislead a reader into buying books the course does not require. Matches every bullet in the list, not just the first.",
+      "replace": "- Recommended Reading (Appendix B heads this list \"Recommended Reading\"):",
+      "find_regex": "- Required Reading(?:s)?:"
+    },
+    {
+      "source_id": "0be2bed38d",
+      "source": "vault/raw/Negotiations Syllabus.pdf",
+      "added": "2026-09-29",
+      "reason": "The source says 'missing one costs 2 points' -- per missed worksheet, not per day. Preparation worksheets are never accepted late at all, so a per-day rate cannot apply.",
+      "replace": "costs 2 points per missed worksheet",
+      "find_regex": "costs? 2 points per day(?: late)?"
+    },
+    {
+      "source_id": "0be2bed38d",
+      "source": "vault/raw/Negotiations Syllabus.pdf",
+      "added": "2026-09-29",
+      "reason": "The source says 'Shadow-negotiate window for Week 8: 10/10-10/17'. That is an exercise window, not a cancelled class. The syllabus lists no no-class dates.",
+      "replace": "Shadow-negotiate exercise window (not a cancelled class): 10/10",
+      "find_regex": "No-class dates?: 10/10"
+    }
+  ]
+}

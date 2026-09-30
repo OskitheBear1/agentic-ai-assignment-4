@@ -1,0 +1,54 @@
+{
+  "_note": "Written BEFORE the harness was run against these questions. This file lives outside vault/ on purpose: the retrieval index only reads vault/raw and vault/wiki, so the harness can never retrieve this answer key.",
+  "_authored": "2026-09-29",
+  "_wiki_scope": "Four Fall 2026 Berkeley Haas syllabi: Agentic AI (MBA 290T), Asset Management (MBA 233), Descriptive and Predictive Data Mining (MBA 247), Negotiations and Conflict Resolution (MBA 252).",
+  "tests": [
+    {
+      "id": "test-1",
+      "kind": "direct, single source",
+      "question": "How many points is global participation worth in the Negotiations course?",
+      "expected_behavior": "States 40 points out of 100, cited to the Negotiations syllabus grading table.",
+      "expected_answer_contains": ["40"],
+      "expected_sources": ["vault/raw/Negotiations Syllabus.pdf"],
+      "expected_passage": "Grading - 100 Points Total / Component When Points / Global participation (attendance, punctuality, engagement, quality of discussion) Weekly 40 ... Participation (40 points)",
+      "expected_page": 2,
+      "why_this_test": "Baseline: the question uses almost the source's own wording and the fact is a single number in one table. If this fails, retrieval or prompt assembly is broken, not the model's reasoning."
+    },
+    {
+      "id": "test-2",
+      "kind": "answerable, deliberately reworded",
+      "question": "In Asset Management, how many classes can I miss before it starts to hurt my grade?",
+      "expected_behavior": "States that more than three absences will adversely affect the class contribution grade, cited to the Asset Management syllabus.",
+      "expected_answer_contains": ["three"],
+      "expected_sources": ["vault/raw/Asset Management Syllabus.pdf"],
+      "expected_passage": "More than three absences will adversely affect the class contribution grade.",
+      "expected_page": 1,
+      "why_this_test": "The source never says 'miss', 'hurt' or 'how many classes'. It says 'absences' and 'adversely affect'. This tests whether the dense half of the hybrid retriever earns its keep, since BM25 alone has little lexical overlap to work with. Distractor risk: three other syllabi also discuss absences."
+    },
+    {
+      "id": "test-3",
+      "kind": "answerable, spans two sources",
+      "question": "Which of my Fall 2026 courses meet on Wednesdays, and at what times?",
+      "expected_behavior": "Names Data Mining (MBA 247), Wednesdays 6:00pm-9:30pm PT in Chou Hall N300, and Negotiations (MBA 252), Wednesdays, 8:00-11:00 AM for section 252.1 and 2:00-5:00 PM for 252.2 in C220. Cites both syllabi. Should not list Agentic AI (Tuesdays) or Asset Management (Tuesdays and Thursdays).",
+      "expected_answer_contains": ["Data Mining", "Negotiations"],
+      "expected_sources": [
+        "vault/raw/Data Mining Syllabus.pdf",
+        "vault/raw/Negotiations Syllabus.pdf"
+      ],
+      "expected_passage": "Data Mining: 'Wednesday | Aug 26 - Oct 28, 2026 (10 weeks) | 6:00pm-9:30pm PT | Chou Hall N300'. Negotiations: 'Day: Wednesdays / Time: MBA252.1 - 8:00-11:00 AM | MBA252.2 - 2:00-5:00 PM / Location: C220'.",
+      "expected_page": null,
+      "why_this_test": "Requires evidence from two different documents in one answer, and requires NOT including the two Tuesday courses. Tests both recall across sources and precision against near-miss passages."
+    },
+    {
+      "id": "test-4",
+      "kind": "unsupported - expected refusal",
+      "question": "Who is the GSI for the Asset Management course?",
+      "expected_behavior": "Explicitly states the wiki does not contain a GSI for Asset Management. Must NOT answer 'Oranda Hou', who is the GSI for Negotiations, not Asset Management.",
+      "expected_answer_contains": ["INSUFFICIENT EVIDENCE"],
+      "expected_sources": [],
+      "expected_passage": "The Asset Management syllabus names only 'Instructor: Sam Olesky' and lists no GSI, GSR, TA or reader. Verified by searching the extracted text for 'GSI', 'GSR', 'assistant', 'reader' and 'TA' - the only hit is an unrelated gsi.berkeley.edu plagiarism URL.",
+      "expected_page": null,
+      "why_this_test": "Plausible because two of the four syllabi do name a GSI, so the question sounds answerable and retrieval will surface a real GSI name from the wrong course. That distractor is the point: a fluent wrong answer is the failure mode being tested for."
+    }
+  ]
+}

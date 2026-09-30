@@ -1,0 +1,23 @@
+vault/wiki/Courses/Asset Management MBA 233.md
+vault/wiki/Courses/Data Mining MBA 247.md
+vault/wiki/Courses/Fundamental Agentic AI.md
+vault/wiki/Courses/Negotiaions MBA 252 Fall 2026.md
+vault/wiki/People/Alexandre Mas.md
+vault/wiki/People/Ali Ware.md
+vault/wiki/People/Bart Sikora.md
+vault/wiki/People/Carl Kawaja.md
+vault/wiki/People/David Hartwig.md
+vault/wiki/People/David Kim.md
+vault/wiki/People/Dustin Seely.md
+vault/wiki/People/Ijoh Ogbechie.md
+vault/wiki/People/Irina Liu.md
+vault/wiki/People/Luyi Yang.md
+vault/wiki/People/Oranda Hou.md
+vault/wiki/People/Pepe Alonso.md
+vault/wiki/People/Sam Olesky.md
+vault/wiki/People/Solène Delecourt.md
+vault/wiki/People/Ziyi Liu.md
+vault/wiki/Topics/Assignments and Deadlines.md
+vault/wiki/Topics/Course Policies.md
+vault/wiki/Topics/Grading and Assessment.md
+vault/wiki/Topics/Required Readings.md

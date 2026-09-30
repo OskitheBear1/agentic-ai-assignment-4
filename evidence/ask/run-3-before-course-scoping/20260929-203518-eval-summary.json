@@ -1,0 +1,255 @@
+{
+  "run_at": "2026-09-29T20:35:18",
+  "execution": "local",
+  "model": "gemma3n:e4b",
+  "embed_model": "embeddinggemma:300m",
+  "results": [
+    {
+      "id": "test-1",
+      "question": "How many points is global participation worth in the Negotiations course?",
+      "verdict": "PASS",
+      "assessment": {
+        "expected_sources_retrieved": [
+          "vault/raw/Negotiations Syllabus.pdf"
+        ],
+        "expected_sources_missing": [],
+        "retrieval_ok": true,
+        "answer_contains_expected": true,
+        "missing_expected_strings": [],
+        "citations_resolve": true,
+        "declared_insufficient": false
+      },
+      "answer": "**ANswer:** Global participation is worth 40 points in the Negotiaions course [S1][S4]. Global participation is assessed based on attendance, punctuality, engagement, and the quality of discussion [S1][S4].",
+      "retrieved": [
+        {
+          "label": "S1",
+          "source_path": "vault/raw/Negotiations Syllabus.pdf",
+          "page": 2,
+          "section": "Course Description"
+        },
+        {
+          "label": "S2",
+          "source_path": "vault/raw/Negotiations Syllabus.pdf",
+          "page": 2,
+          "section": "Course Description"
+        },
+        {
+          "label": "S3",
+          "source_path": "vault/raw/Negotiations Syllabus.pdf",
+          "page": 2,
+          "section": "Course Description"
+        },
+        {
+          "label": "S4",
+          "source_path": "vault/wiki/Courses/Negotiations MBA 252.md",
+          "page": null,
+          "section": "Negotiations MBA 252"
+        },
+        {
+          "label": "S5",
+          "source_path": "vault/wiki/Courses/Negotiations MBA 252.md",
+          "page": null,
+          "section": "Grading"
+        },
+        {
+          "label": "S6",
+          "source_path": "vault/raw/AgenticAISyllabus.pdf",
+          "page": 5,
+          "section": "(document start)"
+        }
+      ],
+      "citation_check": "cited S1, S4 | unused retrieved passages: S2, S3, S5, S6 | spelling flags (in the answer, absent from every cited passage): Negotiaions",
+      "timing_seconds": {
+        "retrieval": 0.253,
+        "generation": 8.096,
+        "total": 8.362
+      },
+      "evidence_card": "evidence/ask/test-1-how-many-points-is-global-participation-worth-in.md"
+    },
+    {
+      "id": "test-2",
+      "question": "In Asset Management, how many classes can I miss before it starts to hurt my grade?",
+      "verdict": "PASS",
+      "assessment": {
+        "expected_sources_retrieved": [
+          "vault/raw/Asset Management Syllabus.pdf"
+        ],
+        "expected_sources_missing": [],
+        "retrieval_ok": true,
+        "answer_contains_expected": true,
+        "missing_expected_strings": [],
+        "citations_resolve": true,
+        "declared_insufficient": false
+      },
+      "answer": "ANswer: More than three absences will adversely affect the class contribution grade in Asset Management [S2].",
+      "retrieved": [
+        {
+          "label": "S1",
+          "source_path": "vault/raw/Asset Management Syllabus.pdf",
+          "page": 1,
+          "section": "(document start)"
+        },
+        {
+          "label": "S2",
+          "source_path": "vault/raw/Asset Management Syllabus.pdf",
+          "page": 1,
+          "section": "Privacy and Recording Notice"
+        },
+        {
+          "label": "S3",
+          "source_path": "vault/raw/AgenticAISyllabus.pdf",
+          "page": 3,
+          "section": "(document start)"
+        },
+        {
+          "label": "S4",
+          "source_path": "vault/raw/AgenticAISyllabus.pdf",
+          "page": 5,
+          "section": "(document start)"
+        },
+        {
+          "label": "S5",
+          "source_path": "vault/raw/Negotiations Syllabus.pdf",
+          "page": 3,
+          "section": "(document start)"
+        },
+        {
+          "label": "S6",
+          "source_path": "vault/raw/AgenticAISyllabus.pdf",
+          "page": 3,
+          "section": "(document start)"
+        }
+      ],
+      "citation_check": "cited S2 | unused retrieved passages: S1, S3, S4, S5, S6",
+      "timing_seconds": {
+        "retrieval": 0.144,
+        "generation": 7.467,
+        "total": 7.627
+      },
+      "evidence_card": "evidence/ask/test-2-in-asset-management-how-many-classes-can-i-miss-.md"
+    },
+    {
+      "id": "test-3",
+      "question": "Which of my Fall 2026 courses meet on Wednesdays, and at what times?",
+      "verdict": "PASS",
+      "assessment": {
+        "expected_sources_retrieved": [
+          "vault/raw/Data Mining Syllabus.pdf",
+          "vault/raw/Negotiations Syllabus.pdf"
+        ],
+        "expected_sources_missing": [],
+        "retrieval_ok": true,
+        "answer_contains_expected": true,
+        "missing_expected_strings": [],
+        "citations_resolve": true,
+        "declared_insufficient": false
+      },
+      "answer": "ANswer: The courses that meet on Wednesdays in Fall 2026 are Negotiations and Data Mining. Negotiations meets from 8:00–11:00 AM and 2:00–5:00 PM in room C220 [S1]. Data Mining meets from 6:00pm-9:30pm PT in Chou Hall N300 [S3][S6].",
+      "retrieved": [
+        {
+          "label": "S1",
+          "source_path": "vault/raw/Negotiations Syllabus.pdf",
+          "page": 1,
+          "section": "(document start)"
+        },
+        {
+          "label": "S2",
+          "source_path": "vault/raw/AgenticAISyllabus.pdf",
+          "page": 1,
+          "section": "MBA 290T: Fundamental of Agentic AI"
+        },
+        {
+          "label": "S3",
+          "source_path": "vault/raw/Data Mining Syllabus.pdf",
+          "page": 1,
+          "section": "Instructor Luyi Yang"
+        },
+        {
+          "label": "S4",
+          "source_path": "vault/wiki/Courses/Asset Management MBA 233.md",
+          "page": null,
+          "section": "Grading"
+        },
+        {
+          "label": "S5",
+          "source_path": "vault/raw/Asset Management Syllabus.pdf",
+          "page": 1,
+          "section": "(document start)"
+        },
+        {
+          "label": "S6",
+          "source_path": "vault/raw/Data Mining Syllabus.pdf",
+          "page": 1,
+          "section": "(document start)"
+        }
+      ],
+      "citation_check": "cited S1, S3, S6 | unused retrieved passages: S2, S4, S5 | spelling flags (in the answer, absent from every cited passage): Mining",
+      "timing_seconds": {
+        "retrieval": 0.132,
+        "generation": 9.142,
+        "total": 9.28
+      },
+      "evidence_card": "evidence/ask/test-3-which-of-my-fall-2026-courses-meet-on-wednesdays.md"
+    },
+    {
+      "id": "test-4",
+      "question": "Who is the GSI for the Asset Management course?",
+      "verdict": "PASS",
+      "assessment": {
+        "expected_sources_retrieved": [],
+        "expected_sources_missing": [],
+        "retrieval_ok": true,
+        "answer_contains_expected": true,
+        "missing_expected_strings": [],
+        "citations_resolve": true,
+        "declared_insufficient": true
+      },
+      "answer": "INSUFFICIENT EVIDENCE: the wiki does not contain the GSI for the Asset Management course.\nClosest available: Irina Liu [S6].",
+      "retrieved": [
+        {
+          "label": "S1",
+          "source_path": "vault/raw/Asset Management Syllabus.pdf",
+          "page": 1,
+          "section": "(document start)"
+        },
+        {
+          "label": "S2",
+          "source_path": "vault/raw/Asset Management Syllabus.pdf",
+          "page": 2,
+          "section": "November 3 Behavioral Models RW 10"
+        },
+        {
+          "label": "S3",
+          "source_path": "vault/wiki/Courses/Asset Management MBA 233.md",
+          "page": null,
+          "section": "Asset Management MBA 233"
+        },
+        {
+          "label": "S4",
+          "source_path": "vault/raw/AgenticAISyllabus.pdf",
+          "page": 1,
+          "section": "MBA 290T: Fundamental of Agentic AI"
+        },
+        {
+          "label": "S5",
+          "source_path": "vault/raw/Asset Management Syllabus.pdf",
+          "page": 1,
+          "section": "Privacy and Recording Notice"
+        },
+        {
+          "label": "S6",
+          "source_path": "vault/raw/Negotiations Syllabus.pdf",
+          "page": 1,
+          "section": "(document start)"
+        }
+      ],
+      "citation_check": "declared insufficient evidence (no citation required)",
+      "timing_seconds": {
+        "retrieval": 0.174,
+        "generation": 6.983,
+        "total": 7.163
+      },
+      "evidence_card": "evidence/ask/test-4-who-is-the-gsi-for-the-asset-management-course.md"
+    }
+  ]
+}
